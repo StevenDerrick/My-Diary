@@ -1,0 +1,138 @@
+@media screen and (max-width: 1340px) and (min-width: 1201px) {
+    .respons p {
+        font-size: 1.5vw;
+        position: relative;
+        left: -72px;
+    }
+  }
+
+
+@media only screen and (max-width: 1200px) {
+    .hero-text-box{
+        width: 100%;
+        padding: 0 2%;
+    }
+    .row {
+        padding: 0 2%;
+    }
+    .box {
+        display: block;
+    }
+    .respons p {
+        font-size: 2vw;
+        position: relative;
+        left: -72px;
+    }    
+}
+
+@media only screen and (max-width: 1023px) {
+  body {
+      font-size: 18px;
+  }
+  section {
+      padding: 60px 0;
+  }
+  .lng-cpy {
+    width: 80%;
+    margin-left: 10%;
+  }
+  .respons p {
+    font-size: 2vw;
+    position: relative;
+    left: -42px;  
+}
+}
+
+@media only screen and (max-width: 767px) {
+    body {
+        font-size: 2.5vh;
+    }
+    section { padding: 30px 0; }
+    .row,
+    .hero-text-box { padding: 0 4%; }
+    .col { width: 100%; }
+    .show-menu-btn, .hide-menu-btn { display: block; }
+    .menu {
+        position: fixed;
+        width: 100%;
+        height: 100vh;
+        background: #333;
+        right: -100%;
+        top: 0;
+        text-align: center;
+        padding: 80px 0;
+        line-height: normal;
+        z-index: 2;
+        transition: 0.7s;
+    }
+    .menu a {
+        padding: 20px;
+        display: block;
+    }
+    .hide-menu-btn {
+        position: absolute;
+        top: 40px;
+        right: 40px;
+    }
+    .main-nav {
+        display: none;
+    }
+    .show-menu-btn {
+        position: relative;
+        bottom: 120px;
+        right: 10px;
+    }
+    #chk:checked ~ .menu {
+        right: 0;
+    }
+    .respons p {
+        font-size: 1.8vw;
+        position: relative;
+        top: -15px;
+    }
+}
+
+@media only screen and (max-width: 480px) {
+    .respons p {
+        font-size: 3.5vw;
+        position: relative;
+        left: -15px;
+    }
+    .modal-content1,
+    .modal-content2 {
+        width: 90%;
+    }
+    .logo {
+        height: 80px;
+    }
+    .show-menu-btn {
+        bottom: 87px;
+    }
+}
+
+@media only screen and (max-width: 480px) {
+
+}
+
+@media only screen and (max-width: 380px) {
+    .box {
+        position: relative;
+        left: -23px;
+    }
+}
+
+@media only screen and (max-width: 360px) {
+    .box {
+        width: 300px;
+    }
+    .container {
+        position: relative;
+        left: 20px;
+    }
+}
+
+@media only screen and (max-width: 320px) {
+    .container {
+        left: 3px;
+    }
+}
