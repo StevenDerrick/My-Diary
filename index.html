@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>My-Diary | Welcome</title>
+        <link href="https://fonts.googleapis.com/css?family=Ubuntu:300,300i,400&display=swap" rel="stylesheet">
+        <script type="module" src="https://unpkg.com/ionicons@4.5.10-0/dist/ionicons/ionicons.esm.js"></script>
+        <script nomodule="" src="https://unpkg.com/ionicons@4.5.10-0/dist/ionicons/ionicons.js"></script>
+        <link rel="stylesheet" href="UI/css/normalize.css">
+        <link rel="icon" type="image/png" href="UI/assets/favicon.png"/>
+        <link rel="stylesheet" href="UI/css/style.css">
+        <link rel="stylesheet" href="UI/css/query-index.css">
+        <link rel="stylesheet" href="UI/css/grid.css">
+    </head>
+    <body>
+        <header>
+            <nav>
+                <div class="row">
+                    <img src="UI/assets/logo.png" alt="My-Diary logo" class="logo">
+                    <ul class="main-nav">
+                        <li><a href="#features">How it works</a></li>
+                        <li><a href="#" onclick="signinModal()">Login</a></li>
+                    </ul>
+                </div>
+                <div class="humberger">
+                    <input type="checkbox" id="chk">
+                    <label for="chk" class="show-menu-btn">
+                        <i><ion-icon name="menu"></ion-icon></i>
+                    </label>
+                    <ul class="menu">
+                        <a href="#features" onclick="unCheck()">How it Works</a>
+                        <br>
+                        <a href="#" value="click" onclick="signinModal(); unCheck();">Login</a>
+                        <label for="chk" class="hide-menu-btn">
+                            <i><ion-icon name="close"></ion-icon></i>
+                        </label>
+                    </ul>
+                </div>
+            </nav>
+            <div class="hero-text-box">
+                <h1>All of your life moments, <br> in one place.</h1>
+                <a href="#" class="btn btn-full" id="modal2">Register Today!</a>
+            </div>
+        </header>
+        <section class="sctn-ftrs" id="features">
+            <div class="row">
+                <h2>
+                    Features      
+                </h2>
+            </div>
+            <div class="row">
+                <div class="container">
+                    <div class="box">
+                        <div class="icon">
+                            <i class="flo"><ion-icon name="lock"></ion-icon></i>
+                        </div>
+                        <div class="content">
+                            <h3>
+                                Secured
+                            </h3>
+                            <p>
+                                My diary is designed with your privacy in mind and that your memories remains private to you alone
+                            </p> 
+                        </div>
+                    </div>
+                    <div class="box">
+                        <div class="icon">
+                            <i class="flo"><ion-icon name="cog"></ion-icon></i>
+                        </div>
+                        <div class="content">
+                            <h3>
+                                Modern UI/UX
+                            </h3>
+                            <p>
+                                Because we care, the app employs the use of the latest cutting-edge technology in crafting the rich user interface
+                            </p> 
+                        </div>
+                    </div>
+                    <div class="box">
+                        <div class="icon">
+                            <i class="flo"><ion-icon name="notifications-outline"></ion-icon></i>
+                        </div>
+                        <div class="content">
+                            <h3>
+                                Get Notifications
+                            </h3>
+                            <p>
+                                Get daily notifications so you never again miss an oppotunity to write today in history
+                            </p> 
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="sctn-testimonials">
+            <div class="row">
+                <h2>Our customers can't live without us</h2>
+            </div>
+            <div class="row">
+                <div class="col span-1-of-3">
+                    <blockquote>
+                        My-Diary is just awesome! I just launched a startup which leaves me with no time for writing, so My-Diary is a life-saver. Now that I got used to it, I couldn't live without this app!
+                    <cite>
+                        <img src="UI/assets/customer-1.jpg" alt="">
+                        Alberto Duncan
+                    </cite>
+                    </blockquote>
+                </div>
+                <div class="col span-1-of-3">
+                    <blockquote>
+                        Inexpensive, safe and great-performance app, it came at the right to time. We have lots of online journals here in Paris, but no one comes even close to My-Diary. Me and my family are so in love!
+                        <cite>
+                            <img src="UI/assets/customer-2.jpg" alt="">
+                            Joana silva
+                        </cite>
+                    </blockquote>
+                </div>
+                <div class="col span-1-of-3">
+                    <blockquote>
+                        was looking for a safe and easy online journal app in San Franciso. I tried a lot of them and ended up with My-Diary. Best online journal app in the Bay Area. Keep up the great work!
+                        <cite>
+                            <img src="UI/assets/customer-3.jpg" alt="">
+                            Milton Chapman
+                        </cite>
+                    </blockquote>
+                </div>
+            </div>
+        </section>
+
+        <!-- Modal Section-->
+
+        <div class="bg-modal" id="myModal">
+            <div class="modal-content1">
+                <div class="modal-header">
+                    <span class="close1">&times;</span>
+                    <img src="UI/assets/logo.png" alt="" class="logory">
+                    <div class="form-title">
+                        <h4>Login</h4>
+                    </div>
+                </div>
+                <div class="modal-body">
+                    <form action="UI/html/main.html" class="signin">
+                        <input class="youth" type="email" placeholder="Enter email" required>
+                        <input type="password" placeholder="Enter password" required>
+                        <input class="button" type="submit" value="Sign in">
+                    </form>
+                </div>
+            </div>
+            <div class="modal-content2">
+                <span class="close2">&times;</span>
+                <img src="UI/assets/logo.png" alt="" class="logory">
+                <div class="form-title">
+                    <h4>Register</h4>
+                </div>
+                <div class="modal-body">
+                    <form action="UI/html/main.html" class="signin">
+                        <input type="text" placeholder="First name" required>
+                        <input type="text" placeholder="Last name" required>
+                        <input type="email" placeholder="Email" required>
+                        <input type="password" placeholder="Password" required>
+                        <input type="password" placeholder="Re-enter password" required>
+                        <input class="button" type="submit" value="Sign up">
+                    </form>
+                </div>
+            </div>
+        </div>
+
+        <!-- Responsiveness section -->
+
+        <section class="responsiveness">
+            <div class="row">
+                <h2>Multi-Device</h2>
+                <div class="respons">
+                    <p>My Diary is available across all platforms and every device. you can access it from your smartphone,tablet or computer.</p>
+                </div>
+            </div>
+        </section>
+        <footer>
+            <div class="row">
+                <div class="col span-1-of-1">
+                    <ul class="social-links"> 
+                        <li>
+                            <a href="#"><i class="ion-social-facebook"><ion-icon name="logo-facebook"></ion-icon></i></a>
+                        </li>
+                        <li>
+                            <a href="#"><i class="ion-social-twitter"><ion-icon name="logo-twitter"></ion-icon></i></a>
+                        </li>
+                        <li>
+                            <a href="#"><i class="ion-social-googleplus"><ion-icon name="logo-googleplus"></ion-icon></i></a>
+                        </li>
+                        <li>
+                            <a href="#"><i class="ion-social-instagram"><ion-icon name="logo-instagram"></ion-icon></i></a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="row">
+                <p>
+                    copyright &copy; 2019 by My-Diary. All rights reserved.
+                </p>
+            </div>
+        </footer>
+        <script src="UI/javascript/index.js"></script>
+    </body>
+</html>
