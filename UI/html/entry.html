@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link href="https://fonts.googleapis.com/css?family=Ubuntu:300,300i,400&display=swap" rel="stylesheet">
+    <title>My-Diary | Entries</title>
+    <script type="module" src="https://unpkg.com/ionicons@4.5.10-0/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule="" src="https://unpkg.com/ionicons@4.5.10-0/dist/ionicons/ionicons.js"></script>
+    <link rel="icon" type="image/png" href="../assets/favicon.png"/>
+    <link rel="stylesheet" href="../css/entry.css">
+    <link rel="stylesheet" href="../css/normalize.css">
+    <link rel="stylesheet" href="../css/grid.css">
+    <link rel="stylesheet" href="../css/query.css">
+</head>
+<body>
+    <header id="header">
+        <div class="logo">
+            <img src="../assets/logo.png" alt="Main-logo">
+        </div>
+        <div class="humberger" onclick='toggleSidebar()'>
+                &#9776;
+        </div>
+        <div class="home-btn">
+            <a href="main.html"><i><ion-icon name="home"></ion-icon></i></a>
+        </div>
+        <div class="notification-btn">
+            <a href="user-profile.html"><ion-icon name="notifications"></ion-icon></a>
+        </div>
+    </header>
+    <div class="sideBarmenu" id="sidebar">
+            <ul>
+                <li><img src="../assets/customer-1.jpg" alt="johnPhoto"><h5 id="user-caption">Alberto Duncan</h4></li>
+                <li><a href="user-profile.html"><i class="icon-nav"><ion-icon name="person"></ion-icon></i>Profile</a></li>
+                <li><a href="main.html"><i class="icon-nav"><ion-icon name="add-circle"></ion-icon></i>New Entry</a></li>
+                <li><a href="#"><i class="icon-nav"><ion-icon name="filing"></ion-icon></i>View All Entries</a></li>
+            </ul>
+            <div class="logout-section">
+                <a href="../../index.html">
+                    <i><ion-icon name="power"></ion-icon></i>
+                    <p>Sign out</p>
+                </a>
+            </div>
+    </div>
+
+    <!-- ALL ENTRIES -->
+
+
+    <div class="row">
+        <h3>All Entries</h3>
+        <div class="total-entries">
+            <div class="box" id="remove1">
+                <div class="box-icon">
+                    <i class="entry-icon"><ion-icon name="paper"></ion-icon></i>
+                </div>
+                <p class="caption-entry">Developer Challenge</p>
+                <div class="action-icon">
+                        <a href="#" class="modal1" id="modal1" onclick="entryView()"><i><ion-icon name="eye" class="icon-links"></ion-icon></i></a>
+                        <a href="#" onclick="entryUpdate()"><i><ion-icon name="create" class="icon-links"></ion-icon></i></a>
+                        <a href="#" onclick="removeDiv('remove1')"><i><ion-icon name="trash" class="icon-links"></ion-icon></i></a>
+                </div>
+            </div>
+            <div class="box" id="remove2">
+                <div class="box-icon">
+                    <i class="entry-icon"><ion-icon name="paper"></ion-icon></i>
+                </div>
+                <p class="caption-entry">Developer Challenge</p>
+                <div class="action-icon">
+                        <a href="#" class="modal1" onclick="entryView()"><i><ion-icon name="eye" class="icon-links"></ion-icon></i></a>
+                        <a href="#" onclick="entryUpdate()"><i><ion-icon name="create" class="icon-links"></ion-icon></i></a>
+                        <a href="#" onclick="removeDiv('remove2')"><i><ion-icon name="trash" class="icon-links"></ion-icon></i></a>
+                </div>
+            </div> 
+            <div class="box" id="remove3">
+                <div class="box-icon">
+                    <i class="entry-icon"><ion-icon name="paper"></ion-icon></i>
+                </div>
+                <p class="caption-entry">Developer Challenge</p>
+                <div class="action-icon">
+                        <a href="#" class="modal1" onclick="entryView()"><i><ion-icon name="eye" class="icon-links"></ion-icon></i></a>
+                        <a href="#" onclick="entryUpdate()"><i><ion-icon name="create" class="icon-links"></ion-icon></i></a>
+                        <a href="#" onclick="removeDiv('remove3')"><i><ion-icon name="trash" class="icon-links"></ion-icon></i></a>
+                </div>
+            </div>
+            <div class="box" id="remove4">
+                <div class="box-icon">
+                    <i class="entry-icon"><ion-icon name="paper"></ion-icon></i>
+                </div>
+                <p class="caption-entry">Developer Challenge</p>
+                <div class="action-icon">
+                        <a href="#" class="modal1" onclick="entryView()"><i><ion-icon name="eye" class="icon-links"></ion-icon></i></a>
+                        <a href="#" onclick="entryUpdate()"><i><ion-icon name="create" class="icon-links"></ion-icon></i></a>
+                        <a href="#" onclick="removeDiv('remove4')"><i><ion-icon name="trash" class="icon-links"></ion-icon></i></a>
+                </div>
+            </div>
+            <div class="box" id="remove5">
+                    <div class="box-icon">
+                        <i class="entry-icon"><ion-icon name="paper"></ion-icon></i>
+                    </div>
+                    <p class="caption-entry">Developer Challenge</p>
+                    <div class="action-icon">
+                        <a href="#" class="modal1" onclick="entryView()"><i><ion-icon name="eye" class="icon-links"></ion-icon></i></a>
+                        <a href="#" onclick="entryUpdate()"><i><ion-icon name="create" class="icon-links"></ion-icon></i></a>
+                        <a href="#" onclick="removeDiv('remove5')"><i><ion-icon name="trash" class="icon-links"></ion-icon></i></a>
+                    </div>
+                </div>
+                <div class="box" id="remove6">
+                    <div class="box-icon">
+                        <i class="entry-icon"><ion-icon name="paper"></ion-icon></i>
+                    </div>
+                    <p class="caption-entry">Developer Challenge</p>
+                    <div class="action-icon">
+                            <a href="#" class="modal1" onclick="entryView()"><i><ion-icon name="eye" class="icon-links"></ion-icon></i></a>
+                            <a href="#" onclick="entryUpdate()"><i><ion-icon name="create" class="icon-links"></ion-icon></i></a>
+                            <a href="#" onclick="removeDiv('remove6')"><i><ion-icon name="trash" class="icon-links"></ion-icon></i></a>
+                    </div>
+                </div>
+                <div class="box" id="remove7"> 
+                    <div class="box-icon">
+                        <i class="entry-icon"><ion-icon name="paper"></ion-icon></i>
+                    </div>
+                    <p class="caption-entry">Developer Challenge</p>
+                    <div class="action-icon">
+                            <a href="#" class="modal1" onclick="entryView()"><i><ion-icon name="eye" class="icon-links"></ion-icon></i></a>
+                            <a href="#" onclick="entryUpdate()"><i><ion-icon name="create" class="icon-links"></ion-icon></i></a>
+                            <a href="#" onclick="removeDiv('remove7')"><i><ion-icon name="trash" class="icon-links"></ion-icon></i></a>
+                    </div>
+                </div>
+                <div class="box" id="remove8">
+                    <div class="box-icon">
+                        <i class="entry-icon"><ion-icon name="paper"></ion-icon></i>
+                    </div>
+                    <p class="caption-entry">Developer Challenge</p>
+                    <div class="action-icon">
+                            <a href="#" class="modal1" onclick="entryView()"><i><ion-icon name="eye" class="icon-links"></ion-icon></i></a>
+                            <a href="#" onclick="entryUpdate()"><i><ion-icon name="create" class="icon-links"></ion-icon></i></a>
+                            <a href="#" onclick="removeDiv('remove8')"><i><ion-icon name="trash" class="icon-links"></ion-icon></i></a>
+                    </div>
+                </div>
+            </div>
+    </div>
+
+    <!-- Entry Modal -->
+
+    <div class="bg-modal" id="myModal">
+        <div class="modal-content1 entry-form">
+            <div class="form" id="myForm">
+                <i class="date-entry"><ion-icon name="calendar" class="up"></ion-icon>15-08-2017</i>
+                <i class="form-close close1"><ion-icon name="close"></ion-icon></i>
+                    <form action="#" class="signin">
+                        <div class="form-items">
+                            <input class="input" type="text" placeholder="Title" value="Developer Challenge" readonly>
+                            <textarea name="description"id="descript" cols="30" rows="10"  class="input message" placeholder="Message ..." readonly>one who programs computers or designs the system to match the requirements of a systems analyst
+                            </textarea>
+                        </div>
+                    </form>
+            </div>
+        </div>
+        <div class="modal-content2 entry-form">
+            <div class="form" id="myForm">
+                    <i class="date-entry"><ion-icon name="calendar" class="up"></ion-icon>15-08-2017</i>
+                    <i class="form-close close2"><ion-icon name="close"></ion-icon></i>
+                    <form action="entry.html" class="signin">
+                        <div class="form-items">
+                            <input class="input" type="text" placeholder="Title" value="Developer Challenge" required>
+                            <textarea name="description"id="descript" cols="30" rows="10"  class="input message" placeholder="Message ..." required>one who programs computers or designs the system to match the requirements of a systems analyst</textarea>
+                            <input class="btn" type="submit" value="+ update">
+                        </div>
+                    </form>
+            </div>
+        </div>
+    </div>
+    <script src="../javascript/entry.js"></script>
+</body>
+</html>
