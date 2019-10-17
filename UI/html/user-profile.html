@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link href="https://fonts.googleapis.com/css?family=Ubuntu:300,300i,400&display=swap" rel="stylesheet">
+    <title>My-Diary | Profile</title>
+    <script type="module" src="https://unpkg.com/ionicons@4.5.10-0/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule="" src="https://unpkg.com/ionicons@4.5.10-0/dist/ionicons/ionicons.js"></script>
+    <link rel="stylesheet" href="../css/user-profile.css">
+    <link rel="icon" type="image/png" href="../assets/favicon.png"/>
+    <link rel="stylesheet" href="../css/query.css">
+</head>
+<body>
+    <header id="header">
+        <div class="logo">
+            <img src="../assets/logo.png" alt="Main-logo">
+        </div>
+        <div class="humberger" onclick='toggleSidebar()'>
+                &#9776;
+        </div>
+        <div class="home-btn">
+            <a href="main.html"><i><ion-icon name="home"></ion-icon></i></a>
+        </div>
+        <div class="notification-btn">
+            <a href="user-profile.html"><ion-icon name="notifications"></ion-icon></a>
+        </div>
+    </header>
+    <div class="sideBarmenu" id="sidebar">
+            <ul>
+                <li><img src="../assets/customer-1.jpg" alt="johnPhoto"><h5 id="user-caption">Alberto Duncan</h4></li>
+                <li><a href="#"><i class="icon-nav"><ion-icon name="person"></ion-icon></i>Profile</a></li>
+                <li><a href="main.html"><i class="icon-nav"><ion-icon name="add-circle"></ion-icon></i>New Entry</a></li>
+                <li><a href="entry.html"><i class="icon-nav"><ion-icon name="filing"></ion-icon></i>View All Entries</a></li>
+            </ul>
+            <div class="logout-section">
+                <a href="../../index.html">
+                    <i><ion-icon name="power"></ion-icon></i>
+                    <p>Sign out</p>
+                </a>
+            </div>
+    </div>
+    <div class="profile-card">
+        <div class="image-container">
+            <img src="../assets/customer-1.jpg" alt="userphoto" style=" width: 100%">
+            <div class="title">
+                <h2>
+                    Alberto Duncan
+                </h2>
+            </div>
+        </div>
+        <div class="main-container">
+            <p><i class="info"><ion-icon name="briefcase"></ion-icon></i> Andela Ltd</p>
+            <p><i class="info"><ion-icon name="pin"></ion-icon></i> Kigali, Rwanda</p>
+            <p><i class="info"><ion-icon name="mail"></ion-icon></i> duncan@gmail.com</p>
+            <p><i class="info"><ion-icon name="call"></ion-icon></i> +250781040425</p>
+            <p><i class="info"><ion-icon name="paper"></ion-icon></i> 8 Entries</p>
+            <hr>
+            <p class="spacing-card"><b><i class="info"><ion-icon name="settings"></ion-icon></i>Settings</b></p>
+            <p><i class="info"><ion-icon name="notifications"></ion-icon></i> Reminder</p>
+            <div class="toggle-bt">
+                <div class="center">
+                    <input type="checkbox" name="" value="">
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+    <script src="../javascript/user-profile.js"></script>
+</body>
+</html>
