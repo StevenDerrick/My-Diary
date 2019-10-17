@@ -1,0 +1,19 @@
+language: node_js
+node_js:
+  - "10"
+cache:
+  directories:
+    - "node_modules"
+env:
+  global:
+    ENV=TRAVIS
+sudo: false
+install:
+  - npm install -g codecov      
+before_script:
+  - npm install
+script:
+  - npm run test
+  - nyc report --reporter=text-lcov > coverage.lcov && codecov
+after_success: 
+  - npm run coveralls 
