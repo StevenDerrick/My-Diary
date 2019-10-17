@@ -30,3 +30,15 @@ exports.usersSignUp = (req, res) => {
     });
   });
 };
+
+exports.usersSignIn = (req, res) => {
+  const user = users.find((c) => c.email === req.body.email);
+  const token = encrypter(user.email, user.firstName);
+  res.status(200).json({
+    status: 200,
+    message: 'User is successfully logged in',
+    data: {
+      token,
+    },
+  });
+};
