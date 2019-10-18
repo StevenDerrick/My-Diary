@@ -20,5 +20,7 @@ module.exports = {
     'no-undef': 0,
     'import/prefer-default-export': 0,
     'import/named': 0,
+    'no-useless-concat': 0,
+    'radix': 0,
   },
 };
