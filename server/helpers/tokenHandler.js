@@ -3,10 +3,10 @@ import dotenv from 'dotenv';
 
 dotenv.config();
 
-export const encrypter = (email, firstName) => {
+export const encrypter = (email, userId) => {
   const token = jwt.sign({
     email,
-    firstName,
+    userId,
   },
   process.env.JWT_KEY,
   {
