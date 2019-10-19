@@ -111,44 +111,16 @@ describe('Testing user modify entry trip', () => {
       });
     done();
   });
-  // it('should validate the entry round 1', (done) => {
-  //   const newTrip = {
-  //     title: 'Good day',
-  //   };
-  //   chai.request(app)
-  //     .post('/api/v1/entries')
-  //     .set('Authorization', UserToken)
-  //     .send(newTrip)
-  //     .end((err, res) => {
-  //       expect(res).to.have.status(400);
-  //     });
-  //   done();
-  // });
-  // it('should validate the entry round 2', (done) => {
-  //   const newTrip = {
-  //     description: 'Good day we had yesterday when I spent',
-  //   };
-  //   chai.request(app)
-  //     .post('/api/v1/entries')
-  //     .set('Authorization', UserToken)
-  //     .send(newTrip)
-  //     .end((err, res) => {
-  //       expect(res).to.have.status(400);
-  //     });
-  //   done();
-  // });
-  // it('should return entry created successfully', (done) => {
-  //   const newTrip = {
-  //     title: 'Good day',
-  //     description: 'Good day we had yesterday when I spent',
-  //   };
-  //   chai.request(app)
-  //     .post('/api/v1/entries')
-  //     .set('Authorization', UserToken)
-  //     .send(newTrip)
-  //     .end((err, res) => {
-  //       expect(res).to.have.status(200);
-  //     });
-  //   done();
-  // });
+});
+
+describe('Testing user delete entry trip', () => {
+  it('should return entry deleted successfully', (done) => {
+    chai.request(app)
+      .delete('/api/v1/entries/1')
+      .set('Authorization', User1Token)
+      .end((err, res) => {
+        expect(res).to.have.status(204);
+      });
+    done();
+  });
 });
