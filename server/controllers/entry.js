@@ -67,3 +67,15 @@ exports.entriesAll = (req, res) => {
     data: newArray,
   });
 };
+
+exports.entriesParticular = (req, res) => {
+  const entry = entries.filter((c) => c.userId === req.userData.userId);
+  const specificEntry = entry.filter((etr) => etr.id === parseInt(req.params.entryId));
+  const newArray = specificEntry.map(({ userId, ...item }) => item);
+  const specificEntryObject = newArray.find((etry) => etry.id === parseInt(req.params.entryId));
+
+  res.status(200).json({
+    status: 200,
+    data: specificEntryObject,
+  });
+};

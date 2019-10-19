@@ -146,3 +146,16 @@ describe('Testing user view all entries', () => {
     done();
   });
 });
+
+
+describe('Testing user view specific entry', () => {
+  it('should return a specific entry', (done) => {
+    chai.request(app)
+      .get('/api/v1/entries/2')
+      .set('Authorization', UserToken)
+      .end((err, res) => {
+        expect(res).to.have.status(200);
+      });
+    done();
+  });
+});
