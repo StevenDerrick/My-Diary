@@ -9,6 +9,7 @@ chai.use(chaiHttp);
 
 const UserToken = process.env.USER_TOKEN;
 const User1Token = process.env.USER1_TOKEN;
+const User2Token = process.env.USER2_TOKEN;
 
 
 describe('Testing user create new entry', () => {
@@ -68,7 +69,7 @@ describe('Testing user create new entry', () => {
   });
 });
 
-describe('Testing user modify entry trip', () => {
+describe('Testing user modify entry', () => {
   it('should return You do not have an entry yet', (done) => {
     const modifiedEntry = {
       title: 'Good day',
@@ -113,13 +114,34 @@ describe('Testing user modify entry trip', () => {
   });
 });
 
-describe('Testing user delete entry trip', () => {
+describe('Testing user delete entry', () => {
   it('should return entry deleted successfully', (done) => {
     chai.request(app)
       .delete('/api/v1/entries/1')
       .set('Authorization', User1Token)
       .end((err, res) => {
         expect(res).to.have.status(204);
+      });
+    done();
+  });
+});
+
+describe('Testing user view all entries', () => {
+  it('should return you do not have an entry', (done) => {
+    chai.request(app)
+      .get('/api/v1/entries')
+      .set('Authorization', User2Token)
+      .end((err, res) => {
+        expect(res).to.have.status(400);
+      });
+    done();
+  });
+  it('should return a list of all entries', (done) => {
+    chai.request(app)
+      .get('/api/v1/entries')
+      .set('Authorization', UserToken)
+      .end((err, res) => {
+        expect(res).to.have.status(200);
       });
     done();
   });

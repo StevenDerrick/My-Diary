@@ -57,3 +57,13 @@ exports.entriesDelete = (req, res) => {
     },
   });
 };
+
+exports.entriesAll = (req, res) => {
+  const entry = entries.filter((c) => c.userId === req.userData.userId);
+  const newArray = entry.map(({ userId, ...item }) => item);
+
+  res.status(200).json({
+    status: 200,
+    data: newArray,
+  });
+};
