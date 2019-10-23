@@ -61,6 +61,7 @@ exports.entriesDelete = (req, res) => {
 exports.entriesAll = (req, res) => {
   const entry = entries.filter((c) => c.userId === req.userData.userId);
   const newArray = entry.map(({ userId, ...item }) => item);
+  newArray.sort((a, b) => parseFloat(b.id) - parseFloat(a.id));
 
   res.status(200).json({
     status: 200,
