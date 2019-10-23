@@ -53,7 +53,21 @@ describe('Testing user create new entry', () => {
       });
     done();
   });
-  it('should return entry created successfully', (done) => {
+  it('should return entry created first entry successfully', (done) => {
+    const newTrip = {
+      title: 'Good day',
+      description: 'Good day we had yesterday when I spent',
+    };
+    chai.request(app)
+      .post('/api/v1/entries')
+      .set('Authorization', UserToken)
+      .send(newTrip)
+      .end((err, res) => {
+        expect(res).to.have.status(200);
+      });
+    done();
+  });
+  it('should return entry created second entry successfully', (done) => {
     const newTrip = {
       title: 'Good day',
       description: 'Good day we had yesterday when I spent',
@@ -80,7 +94,7 @@ describe('Testing user modify entry', () => {
       .set('Authorization', UserToken)
       .send(modifiedEntry)
       .end((err, res) => {
-        expect(res).to.have.status(400);
+        expect(res).to.have.status(404);
       });
     done();
   });
@@ -94,7 +108,7 @@ describe('Testing user modify entry', () => {
       .set('Authorization', User1Token)
       .send(modifiedEntry)
       .end((err, res) => {
-        expect(res).to.have.status(400);
+        expect(res).to.have.status(404);
       });
     done();
   });
@@ -132,7 +146,7 @@ describe('Testing user view all entries', () => {
       .get('/api/v1/entries')
       .set('Authorization', User2Token)
       .end((err, res) => {
-        expect(res).to.have.status(400);
+        expect(res).to.have.status(404);
       });
     done();
   });
