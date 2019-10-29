@@ -25,9 +25,12 @@
             <div class="home-btn">
                 <a href="main.html"><i><ion-icon name="home"></ion-icon></i></a>
             </div>
-            <div class="notification-btn">
-                <a href="user-profile.html"><ion-icon name="notifications"></ion-icon></a>
+            <div class="notification-btn" onclick="dropDown()">
+                <ion-icon name="notifications"></ion-icon>
             </div>
+            <div id="notificationDrop" class="dropDown-content">
+                <p>No notification available</p>
+              </div>
         </div>
     </header>
     <div class="sideBarmenu" id="sidebar">
@@ -60,6 +63,31 @@
                 </form>
         </div>
     </div>
+    <footer>
+        <div class="row">
+            <div class="col span-1-of-1">
+                <ul class="social-links"> 
+                    <li>
+                        <a href="#"><i class="ion-social-facebook"><ion-icon name="logo-facebook"></ion-icon></i></a>
+                    </li>
+                    <li>
+                        <a href="#"><i class="ion-social-twitter"><ion-icon name="logo-twitter"></ion-icon></i></a>
+                    </li>
+                    <li>
+                        <a href="#"><i class="ion-social-googleplus"><ion-icon name="logo-googleplus"></ion-icon></i></a>
+                    </li>
+                    <li>
+                        <a href="#"><i class="ion-social-instagram"><ion-icon name="logo-instagram"></ion-icon></i></a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="row">
+            <p>
+                copyright &copy; 2019 by My-Diary. All rights reserved.
+            </p>
+        </div>
+    </footer>
     <script src="../javascript/main.js"></script>
 </body>
 </html>

@@ -47,3 +47,9 @@ window.onclick = function(event) {
  function removeDiv(id){
    document.getElementById(id).style.display = 'none';
   }
+
+  // NOTIFICATION DROPDOWN
+  
+  function dropDown() {
+    document.getElementById('notificationDrop').classList.toggle('show');
+  }
