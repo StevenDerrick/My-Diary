@@ -1,18 +1,10 @@
-import express from 'express';
-import morgan from 'morgan';
-import routes from './server/routes/index';
+import dotenv from 'dotenv';
+import app from './server/app';
 
-
-const app = express();
-app.use(morgan('dev'));
-app.use(express.json());
-app.use(express.urlencoded({ extended: false }));
-app.use('/', routes);
+dotenv.config();
 
 const port = process.env.PORT || 3000;
 
 app.listen(port, () => {
-  console.log(`Listening on port ${port}...`);
+  process.stdout.write(`Listening on port ${port}...`);
 });
-
-export default app;
