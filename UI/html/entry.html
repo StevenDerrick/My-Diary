@@ -25,9 +25,13 @@
         <div class="home-btn">
             <a href="main.html"><i><ion-icon name="home"></ion-icon></i></a>
         </div>
-        <div class="notification-btn">
-            <a href="user-profile.html"><ion-icon name="notifications"></ion-icon></a>
+        <div class="notification-btn" onclick="dropDown()">
+            <ion-icon name="notifications"></ion-icon>
         </div>
+        <div id="notificationDrop" class="dropDown-content">
+            <p>No notification available</p>
+          </div>
+    </div>
     </header>
     <div class="sideBarmenu" id="sidebar">
             <ul>
@@ -54,7 +58,7 @@
                 <div class="box-icon">
                     <i class="entry-icon"><ion-icon name="paper"></ion-icon></i>
                 </div>
-                <p class="caption-entry">Developer Challenge</p>
+                <p class="caption-entry">What a rainy day!</p>
                 <div class="action-icon">
                         <a href="#" class="modal1" id="modal1" onclick="entryView()"><i><ion-icon name="eye" class="icon-links"></ion-icon></i></a>
                         <a href="#" onclick="entryUpdate()"><i><ion-icon name="create" class="icon-links"></ion-icon></i></a>
@@ -65,7 +69,7 @@
                 <div class="box-icon">
                     <i class="entry-icon"><ion-icon name="paper"></ion-icon></i>
                 </div>
-                <p class="caption-entry">Developer Challenge</p>
+                <p class="caption-entry">My Journey to Lagos</p>
                 <div class="action-icon">
                         <a href="#" class="modal1" onclick="entryView()"><i><ion-icon name="eye" class="icon-links"></ion-icon></i></a>
                         <a href="#" onclick="entryUpdate()"><i><ion-icon name="create" class="icon-links"></ion-icon></i></a>
@@ -76,7 +80,7 @@
                 <div class="box-icon">
                     <i class="entry-icon"><ion-icon name="paper"></ion-icon></i>
                 </div>
-                <p class="caption-entry">Developer Challenge</p>
+                <p class="caption-entry">First day at college</p>
                 <div class="action-icon">
                         <a href="#" class="modal1" onclick="entryView()"><i><ion-icon name="eye" class="icon-links"></ion-icon></i></a>
                         <a href="#" onclick="entryUpdate()"><i><ion-icon name="create" class="icon-links"></ion-icon></i></a>
@@ -87,7 +91,7 @@
                 <div class="box-icon">
                     <i class="entry-icon"><ion-icon name="paper"></ion-icon></i>
                 </div>
-                <p class="caption-entry">Developer Challenge</p>
+                <p class="caption-entry">Visit at Akagera Motors</p>
                 <div class="action-icon">
                         <a href="#" class="modal1" onclick="entryView()"><i><ion-icon name="eye" class="icon-links"></ion-icon></i></a>
                         <a href="#" onclick="entryUpdate()"><i><ion-icon name="create" class="icon-links"></ion-icon></i></a>
@@ -98,7 +102,7 @@
                     <div class="box-icon">
                         <i class="entry-icon"><ion-icon name="paper"></ion-icon></i>
                     </div>
-                    <p class="caption-entry">Developer Challenge</p>
+                    <p class="caption-entry">Preparation of exams</p>
                     <div class="action-icon">
                         <a href="#" class="modal1" onclick="entryView()"><i><ion-icon name="eye" class="icon-links"></ion-icon></i></a>
                         <a href="#" onclick="entryUpdate()"><i><ion-icon name="create" class="icon-links"></ion-icon></i></a>
@@ -109,7 +113,7 @@
                     <div class="box-icon">
                         <i class="entry-icon"><ion-icon name="paper"></ion-icon></i>
                     </div>
-                    <p class="caption-entry">Developer Challenge</p>
+                    <p class="caption-entry">Shopping for Easter</p>
                     <div class="action-icon">
                             <a href="#" class="modal1" onclick="entryView()"><i><ion-icon name="eye" class="icon-links"></ion-icon></i></a>
                             <a href="#" onclick="entryUpdate()"><i><ion-icon name="create" class="icon-links"></ion-icon></i></a>
@@ -120,7 +124,7 @@
                     <div class="box-icon">
                         <i class="entry-icon"><ion-icon name="paper"></ion-icon></i>
                     </div>
-                    <p class="caption-entry">Developer Challenge</p>
+                    <p class="caption-entry">My Sister's graduation</p>
                     <div class="action-icon">
                             <a href="#" class="modal1" onclick="entryView()"><i><ion-icon name="eye" class="icon-links"></ion-icon></i></a>
                             <a href="#" onclick="entryUpdate()"><i><ion-icon name="create" class="icon-links"></ion-icon></i></a>
@@ -131,7 +135,7 @@
                     <div class="box-icon">
                         <i class="entry-icon"><ion-icon name="paper"></ion-icon></i>
                     </div>
-                    <p class="caption-entry">Developer Challenge</p>
+                    <p class="caption-entry">Welcome little brother</p>
                     <div class="action-icon">
                             <a href="#" class="modal1" onclick="entryView()"><i><ion-icon name="eye" class="icon-links"></ion-icon></i></a>
                             <a href="#" onclick="entryUpdate()"><i><ion-icon name="create" class="icon-links"></ion-icon></i></a>
@@ -171,6 +175,31 @@
             </div>
         </div>
     </div>
+    <footer>
+        <div class="row">
+            <div class="col span-1-of-1">
+                <ul class="social-links"> 
+                    <li>
+                        <a href="#"><i class="ion-social-facebook"><ion-icon name="logo-facebook"></ion-icon></i></a>
+                    </li>
+                    <li>
+                        <a href="#"><i class="ion-social-twitter"><ion-icon name="logo-twitter"></ion-icon></i></a>
+                    </li>
+                    <li>
+                        <a href="#"><i class="ion-social-googleplus"><ion-icon name="logo-googleplus"></ion-icon></i></a>
+                    </li>
+                    <li>
+                        <a href="#"><i class="ion-social-instagram"><ion-icon name="logo-instagram"></ion-icon></i></a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="row">
+            <p>
+                copyright &copy; 2019 by My-Diary. All rights reserved.
+            </p>
+        </div>
+    </footer>
     <script src="../javascript/entry.js"></script>
 </body>
 </html>

@@ -470,7 +470,9 @@ footer {
 }
 .social-links {
     list-style: none;
-    float: right;
+    position: absolute;
+    left: 50%;
+    margin-left: -90px;
 }
 .footer-nav li,
 .social-links li {
@@ -519,7 +521,7 @@ footer {
 }
 footer p {
     color: #888;
-    margin-top: 30px;
+    margin-top: 50px;
     text-align: center;
     font-size: 90%;
 }
