@@ -3,20 +3,20 @@
     padding: 0;
 }
 html {
-    background-color: #f7f7f7;
-    color: #555;
-    font-family: 'ubuntu', 'arial', sans-serif;
-    font-size: 20px;
-    font-weight: 300;
-    text-rendering: optimizeLegibility;
-    overflow-x: hidden;
-}
-body {
     background-image: url(../assets/backgorund.jpg);
     background-attachment: fixed;
     background-size: cover;
     background-position: center;
-    height: 100%;
+    color: #555;
+    font-family: 'ubuntu', 'arial', sans-serif;
+    font-size: 20px;
+    font-weight: 300;
+    min-height: 100vh;
+    text-rendering: optimizeLegibility;
+    overflow-x: hidden;
+}
+body {
+    zoom: 84%;
 }
 header {
     background: #217dbb;
@@ -37,7 +37,7 @@ header h2 {
     margin-right: auto;
     position: relative;
     top: 2px;
-    left: 47vw;
+    left: 57vw;
     border-radius: 50%;
 }
 .logo {
@@ -48,7 +48,7 @@ header h2 {
 .sideBarmenu {
     position: fixed;
     width: 250px;
-    height: 65vh;
+    height: 617px;
     background: #151719;
     transition: left 0.4s;
 }
@@ -118,7 +118,7 @@ li:active {
 }
 .logout-section {
     position: relative;
-    top: 80px;
+    top: 180px;
     left: 110px;
     color: rgba(230, 230, 230, 0.9);
 }
@@ -187,10 +187,10 @@ hr {
 
 /* TOGGLE BUTTON SECTION */
 .center{
-    position: relative;
+    position: absolute;
     bottom: -25px;
     top: 50%;
-    left: 35%;
+    left: 50%;
     transform: translate(-50%, -50%);
 }
 
@@ -232,6 +232,9 @@ input:checked[type="checkbox"]:before
 /* FOOTER */
 
 footer {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
     background-color: #333;
     box-sizing: border-box;
     padding: 30px;
