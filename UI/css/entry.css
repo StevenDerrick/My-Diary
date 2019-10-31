@@ -16,6 +16,7 @@ body {
     background-size: cover;
     background-position: center;
     height: 100vh;
+    zoom: 84%;
 }
 header {
     background: #217dbb;
@@ -37,7 +38,7 @@ header h2 {
     margin-right: auto;
     position: relative;
     top: 2px;
-    left: 47vw;
+    left: 57vw;
     border-radius: 50%;
 }
 .logo {
@@ -48,7 +49,7 @@ header h2 {
 .sideBarmenu {
     position: fixed;
     width: 250px;
-    height: 65vh;
+    height: 560px;
     background: #151719;
     left: -250px;
     transition: left 0.4s;
@@ -308,6 +309,9 @@ li:active {
 
 footer {
     background-color: #333;
+    position: absolute;
+    width: 100%;
+    bottom: 0;
     box-sizing: border-box;
     padding: 30px;
     font-size: 80%;

@@ -123,7 +123,7 @@
         left: -50px;
     }
     .logo img {
-        left: 150px;
+        left: 190px;
     }
     .notification-btn {
         right: 10px;
@@ -140,5 +140,8 @@
     }
     .image-container {
         width: 260px;
+    }
+    footer {
+        position: relative;
     }
 }
