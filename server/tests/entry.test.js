@@ -1,7 +1,7 @@
 import chai, { expect } from 'chai';
 import chaiHttp from 'chai-http';
 import dotenv from 'dotenv';
-import app from '../../server';
+import app from '../app';
 
 dotenv.config();
 
@@ -134,7 +134,7 @@ describe('Testing user delete entry', () => {
       .delete('/api/v1/entries/1')
       .set('Authorization', User1Token)
       .end((err, res) => {
-        expect(res).to.have.status(204);
+        expect(res).to.have.status(200);
       });
     done();
   });

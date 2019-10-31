@@ -19,7 +19,7 @@ exports.usersSignUp = (req, res) => {
       password: hash,
     };
     users.push(newUser);
-    const token = encrypter(newUser.email, newUser.userId);
+    const token = encrypter(newUser.userId);
 
     return res.status(201).json({
       status: 201,
@@ -33,7 +33,7 @@ exports.usersSignUp = (req, res) => {
 
 exports.usersSignIn = (req, res) => {
   const user = users.find((c) => c.email === req.body.email);
-  const token = encrypter(user.email, user.userId);
+  const token = encrypter(user.userId);
   res.status(200).json({
     status: 200,
     message: 'User is successfully logged in',

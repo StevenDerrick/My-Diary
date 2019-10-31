@@ -50,8 +50,8 @@ exports.entriesModify = (req, res) => {
 exports.entriesDelete = (req, res) => {
   const entryIndex = entries.findIndex((etr) => etr.id === parseInt(req.params.entryId));
   entries.splice(entryIndex, 1);
-  res.status(204).json({
-    status: 204,
+  res.status(200).json({
+    status: 200,
     data: {
       message: 'entry successfully deleted',
     },
