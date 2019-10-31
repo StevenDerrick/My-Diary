@@ -53,6 +53,15 @@ describe('Testing user create new entry', () => {
       });
     done();
   });
+  it('should return You do not have entries yet', (done) => {
+    chai.request(app)
+      .delete('/api/v1/entries/2')
+      .set('Authorization', UserToken)
+      .end((err, res) => {
+        expect(res).to.have.status(404);
+      });
+    done();
+  });
   it('should return entry created first entry successfully', (done) => {
     const newTrip = {
       title: 'Good day',

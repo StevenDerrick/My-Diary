@@ -1,22 +1,19 @@
 import bcrypt from 'bcrypt';
+import Responsender from '../helpers/responseHandler';
 import users from '../models/Users';
 
 export default async (req, res, next) => {
+  const response = new Responsender();
   const user = users.find((c) => c.email === req.body.email);
   if (!user) {
-    const status = 404;
-    return res.status(status).json({
-      status,
-      error: 'Invalid email or password',
-    });
+    response.error(404, 'Invalid email or password');
+    return response.send(res);
   }
   bcrypt.compare(req.body.password, user.password, (err, userPassword) => {
     if (userPassword) {
       return next();
     }
-    return res.status(404).json({
-      status: 404,
-      error: 'Invalid email or password',
-    });
+    response.error(404, 'Invalid email or password');
+    return response.send(res);
   });
 };

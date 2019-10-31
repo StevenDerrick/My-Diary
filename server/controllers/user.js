@@ -2,6 +2,7 @@ import express from 'express';
 import bcrypt from 'bcrypt';
 import dotenv from 'dotenv';
 import { encrypter } from '../helpers/tokenHandler';
+import Responsender from '../helpers/responseHandler';
 import users from '../models/Users';
 
 dotenv.config();
@@ -10,6 +11,7 @@ const app = express();
 app.use(express.json);
 
 exports.usersSignUp = (req, res) => {
+  const response = new Responsender();
   bcrypt.hash(req.body.password, 10, (err, hash) => {
     const newUser = {
       userId: users.length + 1,
@@ -19,26 +21,18 @@ exports.usersSignUp = (req, res) => {
       password: hash,
     };
     users.push(newUser);
-    const token = encrypter(newUser.userId);
-
-    return res.status(201).json({
-      status: 201,
-      message: 'User created successfully',
-      data: {
-        token,
-      },
+    response.successful(201, 'User created successfully', {
+      token: encrypter(newUser.userId),
     });
+    return response.send(res);
   });
 };
 
 exports.usersSignIn = (req, res) => {
+  const response = new Responsender();
   const user = users.find((c) => c.email === req.body.email);
-  const token = encrypter(user.userId);
-  res.status(200).json({
-    status: 200,
-    message: 'User is successfully logged in',
-    data: {
-      token,
-    },
+  response.successful(200, 'User is successfully logged in', {
+    token: encrypter(user.userId),
   });
+  return response.send(res);
 };

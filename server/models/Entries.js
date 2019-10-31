@@ -2,7 +2,7 @@ const entries = [
   {
     id: 1,
     userId: 1,
-    createdOn: '2019-10-19T11:58:10.564Z',
+    createdOn: 'Mon Oct 28 2019',
     title: 'Nice day',
     description: 'jdadkhjkaldhldald',
   },
