@@ -1,4 +1,5 @@
 import express from 'express';
+import Responsender from '../helpers/responseHandler';
 import entries from '../models/Entries';
 
 const app = express();
@@ -6,28 +7,23 @@ app.use(express.json);
 
 
 exports.entriesCreate = (req, res) => {
+  const response = new Responsender();
   const newEntry = {
     id: entries.length + 1,
     userId: req.userData.userId,
-    createdOn: new Date(),
+    createdOn: new Date().toDateString(),
     title: req.body.title,
     description: req.body.description,
   };
   entries.push(newEntry);
-
-  res.status(200).json({
-    status: 200,
-    data: {
-      message: 'entry successfully created',
-      id: newEntry.id,
-      createdOn: newEntry.createdOn,
-      title: newEntry.title,
-      description: newEntry.description,
-    },
-  });
+  const { userId, ...newObject } = newEntry;
+  response.successful(200, 'entry created successfully', newObject);
+  return response.send(res);
 };
 
+
 exports.entriesModify = (req, res) => {
+  const response = new Responsender();
   const entry = entries.filter((c) => c.userId === req.userData.userId);
   const entryFind = entry.find((c) => c.id === parseInt(req.params.entryId));
 
@@ -35,48 +31,41 @@ exports.entriesModify = (req, res) => {
   entry[entryIndex].title = req.body.title;
   entry[entryIndex].description = req.body.description;
 
-  res.status(200).json({
-    status: 200,
-    data: {
-      message: 'entry successfully edited',
-      id: entryFind.id,
-      title: entryFind.title,
-      description: entryFind.description,
-    },
+  response.successful(200, 'entry edited successfully', {
+    id: entryFind.id,
+    title: entryFind.title,
+    description: entryFind.description,
   });
+  return response.send(res);
 };
 
 
 exports.entriesDelete = (req, res) => {
+  const response = new Responsender();
   const entryIndex = entries.findIndex((etr) => etr.id === parseInt(req.params.entryId));
   entries.splice(entryIndex, 1);
-  res.status(200).json({
-    status: 200,
-    data: {
-      message: 'entry successfully deleted',
-    },
-  });
+
+  response.successful(200, 'entry deleted successfully', null);
+  return response.send(res);
 };
 
 exports.entriesAll = (req, res) => {
+  const response = new Responsender();
   const entry = entries.filter((c) => c.userId === req.userData.userId);
   const newArray = entry.map(({ userId, ...item }) => item);
   newArray.sort((a, b) => parseFloat(b.id) - parseFloat(a.id));
 
-  res.status(200).json({
-    status: 200,
-    data: newArray,
-  });
+  response.successful(200, null, newArray);
+  return response.send(res);
 };
 
 exports.entriesParticular = (req, res) => {
+  const response = new Responsender();
   const entry = entries.filter((c) => c.userId === req.userData.userId);
   const specificEntry = entry.filter((etr) => etr.id === parseInt(req.params.entryId));
   const newArray = specificEntry.map(({ userId, ...item }) => item);
   const specificEntryObject = newArray.find((etry) => etry.id === parseInt(req.params.entryId));
 
-  res.status(200).json({
-    status: 200,
-    data: specificEntryObject,
-  });
+  response.successful(200, null, specificEntryObject);
+  return response.send(res);
 };

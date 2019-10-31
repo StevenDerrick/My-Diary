@@ -1,4 +1,5 @@
 import jwt from 'jsonwebtoken';
+import Responsender from '../helpers/responseHandler';
 
 export default (req, res, next) => {
   try {
@@ -7,9 +8,8 @@ export default (req, res, next) => {
     req.userData = decoded;
     next();
   } catch (error) {
-    return res.status(401).json({
-      status: 401,
-      error: 'Forbidden: You must login to proceed',
-    });
+    const response = new Responsender();
+    response.error(401, 'Forbidden: You must login to proceed');
+    return response.send(res);
   }
 };
