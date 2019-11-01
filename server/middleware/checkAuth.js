@@ -1,5 +1,6 @@
 import jwt from 'jsonwebtoken';
 import Responsender from '../helpers/responseHandler';
+import { UNAUTHORIZED_STATUS_CODE } from '../helpers/statusCodeHandler';
 
 export default (req, res, next) => {
   try {
@@ -9,7 +10,7 @@ export default (req, res, next) => {
     next();
   } catch (error) {
     const response = new Responsender();
-    response.error(401, 'Forbidden: You must login to proceed');
+    response.error(UNAUTHORIZED_STATUS_CODE, 'Forbidden: You must login to proceed');
     return response.send(res);
   }
 };

@@ -1,5 +1,9 @@
 {
   "name": "my-diary",
+  "engines": {
+    "node": "10.15.2",
+    "npm": "6.12.1"
+  },
   "version": "1.0.0",
   "description": "MyDiary is an online journal where users can pen down their thoughts and feelings.",
   "main": "server.js",

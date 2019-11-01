@@ -1,5 +1,6 @@
 import express from 'express';
 import Responsender from '../helpers/responseHandler';
+import { STATUS_CODE_OK } from '../helpers/statusCodeHandler';
 import entries from '../models/Entries';
 
 const app = express();
@@ -17,7 +18,7 @@ exports.entriesCreate = (req, res) => {
   };
   entries.push(newEntry);
   const { userId, ...newObject } = newEntry;
-  response.successful(200, 'entry created successfully', newObject);
+  response.successful(STATUS_CODE_OK, 'entry created successfully', newObject);
   return response.send(res);
 };
 
@@ -31,7 +32,7 @@ exports.entriesModify = (req, res) => {
   entry[entryIndex].title = req.body.title;
   entry[entryIndex].description = req.body.description;
 
-  response.successful(200, 'entry edited successfully', {
+  response.successful(STATUS_CODE_OK, 'entry edited successfully', {
     id: entryFind.id,
     title: entryFind.title,
     description: entryFind.description,
@@ -45,7 +46,7 @@ exports.entriesDelete = (req, res) => {
   const entryIndex = entries.findIndex((etr) => etr.id === parseInt(req.params.entryId));
   entries.splice(entryIndex, 1);
 
-  response.successful(200, 'entry deleted successfully', null);
+  response.successful(STATUS_CODE_OK, 'entry deleted successfully', null);
   return response.send(res);
 };
 
@@ -66,6 +67,6 @@ exports.entriesParticular = (req, res) => {
   const newArray = specificEntry.map(({ userId, ...item }) => item);
   const specificEntryObject = newArray.find((etry) => etry.id === parseInt(req.params.entryId));
 
-  response.successful(200, null, specificEntryObject);
+  response.successful(STATUS_CODE_OK, null, specificEntryObject);
   return response.send(res);
 };

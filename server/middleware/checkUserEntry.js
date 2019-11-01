@@ -1,5 +1,6 @@
 import entries from '../models/Entries';
 import Responsender from '../helpers/responseHandler';
+import { NOT_FOUND_STATUS_CODE } from '../helpers/statusCodeHandler';
 
 export default async (req, res, next) => {
   const response = new Responsender();
@@ -7,11 +8,11 @@ export default async (req, res, next) => {
   const entryFind = entry.find((c) => c.id === parseInt(req.params.entryId));
 
   if (entry.length === 0) {
-    response.error(404, 'You do not have any Entry yet, create an entry and try again');
+    response.error(NOT_FOUND_STATUS_CODE, 'You do not have any Entry yet, create an entry and try again');
     return response.send(res);
   }
   if (!entryFind) {
-    response.error(404, 'You do not have any entry with ID ' + `${req.params.entryId}`);
+    response.error(NOT_FOUND_STATUS_CODE, 'You do not have any entry with ID ' + `${req.params.entryId}`);
     return response.send(res);
   }
   next();
