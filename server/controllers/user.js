@@ -3,6 +3,7 @@ import bcrypt from 'bcrypt';
 import dotenv from 'dotenv';
 import { encrypter } from '../helpers/tokenHandler';
 import Responsender from '../helpers/responseHandler';
+import { STATUS_CODE_OK, STATUS_CODE_CREATED } from '../helpers/statusCodeHandler';
 import users from '../models/Users';
 
 dotenv.config();
@@ -21,7 +22,7 @@ exports.usersSignUp = (req, res) => {
       password: hash,
     };
     users.push(newUser);
-    response.successful(201, 'User created successfully', {
+    response.successful(STATUS_CODE_CREATED, 'User created successfully', {
       token: encrypter(newUser.userId),
     });
     return response.send(res);
@@ -31,7 +32,7 @@ exports.usersSignUp = (req, res) => {
 exports.usersSignIn = (req, res) => {
   const response = new Responsender();
   const user = users.find((c) => c.email === req.body.email);
-  response.successful(200, 'User is successfully logged in', {
+  response.successful(STATUS_CODE_OK, 'User is successfully logged in', {
     token: encrypter(user.userId),
   });
   return response.send(res);

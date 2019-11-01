@@ -1,6 +1,13 @@
 import chai, { expect } from 'chai';
 import chaiHttp from 'chai-http';
 import app from '../app';
+import {
+  STATUS_CODE_CREATED,
+  STATUS_CODE_OK,
+  NOT_FOUND_STATUS_CODE,
+  BAD_REQUEST_STATUS_CODE,
+  UNPROCESSABLE_ENTITY_STATUS_CODE,
+} from '../helpers/statusCodeHandler';
 
 chai.use(chaiHttp);
 
@@ -14,7 +21,7 @@ describe('testing sign up', () => {
       .post('/api/v1/auth/signup')
       .send(newUser)
       .end((err, res) => {
-        expect(res).to.have.status(400);
+        expect(res).to.have.status(BAD_REQUEST_STATUS_CODE);
       });
     done();
   });
@@ -27,7 +34,7 @@ describe('testing sign up', () => {
       .post('/api/v1/auth/signup')
       .send(newUser)
       .end((err, res) => {
-        expect(res).to.have.status(400);
+        expect(res).to.have.status(BAD_REQUEST_STATUS_CODE);
       });
     done();
   });
@@ -41,7 +48,7 @@ describe('testing sign up', () => {
       .post('/api/v1/auth/signup')
       .send(newUser)
       .end((err, res) => {
-        expect(res).to.have.status(400);
+        expect(res).to.have.status(BAD_REQUEST_STATUS_CODE);
       });
     done();
   });
@@ -55,7 +62,7 @@ describe('testing sign up', () => {
       .post('/api/v1/auth/signup')
       .send(newUser)
       .end((err, res) => {
-        expect(res).to.have.status(400);
+        expect(res).to.have.status(BAD_REQUEST_STATUS_CODE);
       });
     done();
   });
@@ -70,7 +77,7 @@ describe('testing sign up', () => {
       .post('/api/v1/auth/signup')
       .send(newUser)
       .end((err, res) => {
-        expect(res).to.have.status(201);
+        expect(res).to.have.status(STATUS_CODE_CREATED);
         expect(res.body).to.have.property('data');
         done();
       });
@@ -86,7 +93,7 @@ describe('testing sign up', () => {
       .post('/api/v1/auth/signup')
       .send(newUser)
       .end((err, res) => {
-        expect(res).to.have.status(422);
+        expect(res).to.have.status(UNPROCESSABLE_ENTITY_STATUS_CODE);
       });
     done();
   });
@@ -103,7 +110,7 @@ describe('Testing sign in', () => {
       .post('/api/v1/auth/signin')
       .send(invalidCredentials)
       .end((err, res) => {
-        expect(res).to.have.status(404);
+        expect(res).to.have.status(NOT_FOUND_STATUS_CODE);
       });
     done();
   });
@@ -116,7 +123,7 @@ describe('Testing sign in', () => {
       .post('/api/v1/auth/signin')
       .send(invalidCredentials)
       .end((err, res) => {
-        expect(res).to.have.status(404);
+        expect(res).to.have.status(NOT_FOUND_STATUS_CODE);
       });
     done();
   });
@@ -129,7 +136,7 @@ describe('Testing sign in', () => {
       .post('/api/v1/auth/signin')
       .send(user)
       .end((err, res) => {
-        expect(res).to.have.status(200);
+        expect(res).to.have.status(STATUS_CODE_OK);
         expect(res.body).to.have.property('data');
         done();
       });

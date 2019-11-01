@@ -2,6 +2,12 @@ import chai, { expect } from 'chai';
 import chaiHttp from 'chai-http';
 import dotenv from 'dotenv';
 import app from '../app';
+import {
+  UNAUTHORIZED_STATUS_CODE,
+  BAD_REQUEST_STATUS_CODE,
+  STATUS_CODE_OK,
+  NOT_FOUND_STATUS_CODE,
+} from '../helpers/statusCodeHandler';
 
 dotenv.config();
 
@@ -23,7 +29,7 @@ describe('Testing user create new entry', () => {
       .set('Authorization', '')
       .send(newTrip)
       .end((err, res) => {
-        expect(res).to.have.status(401);
+        expect(res).to.have.status(UNAUTHORIZED_STATUS_CODE);
       });
     done();
   });
@@ -49,7 +55,7 @@ describe('Testing user create new entry', () => {
       .set('Authorization', UserToken)
       .send(newTrip)
       .end((err, res) => {
-        expect(res).to.have.status(400);
+        expect(res).to.have.status(BAD_REQUEST_STATUS_CODE);
       });
     done();
   });
@@ -72,7 +78,7 @@ describe('Testing user create new entry', () => {
       .set('Authorization', UserToken)
       .send(newTrip)
       .end((err, res) => {
-        expect(res).to.have.status(200);
+        expect(res).to.have.status(STATUS_CODE_OK);
       });
     done();
   });
@@ -86,7 +92,7 @@ describe('Testing user create new entry', () => {
       .set('Authorization', UserToken)
       .send(newTrip)
       .end((err, res) => {
-        expect(res).to.have.status(200);
+        expect(res).to.have.status(STATUS_CODE_OK);
       });
     done();
   });
@@ -103,7 +109,7 @@ describe('Testing user modify entry', () => {
       .set('Authorization', UserToken)
       .send(modifiedEntry)
       .end((err, res) => {
-        expect(res).to.have.status(404);
+        expect(res).to.have.status(NOT_FOUND_STATUS_CODE);
       });
     done();
   });
@@ -117,7 +123,7 @@ describe('Testing user modify entry', () => {
       .set('Authorization', User1Token)
       .send(modifiedEntry)
       .end((err, res) => {
-        expect(res).to.have.status(404);
+        expect(res).to.have.status(NOT_FOUND_STATUS_CODE);
       });
     done();
   });
@@ -131,7 +137,7 @@ describe('Testing user modify entry', () => {
       .set('Authorization', User1Token)
       .send(modifiedEntry)
       .end((err, res) => {
-        expect(res).to.have.status(200);
+        expect(res).to.have.status(STATUS_CODE_OK);
       });
     done();
   });
@@ -143,7 +149,7 @@ describe('Testing user delete entry', () => {
       .delete('/api/v1/entries/1')
       .set('Authorization', User1Token)
       .end((err, res) => {
-        expect(res).to.have.status(200);
+        expect(res).to.have.status(STATUS_CODE_OK);
       });
     done();
   });
@@ -155,7 +161,7 @@ describe('Testing user view all entries', () => {
       .get('/api/v1/entries')
       .set('Authorization', User2Token)
       .end((err, res) => {
-        expect(res).to.have.status(404);
+        expect(res).to.have.status(NOT_FOUND_STATUS_CODE);
       });
     done();
   });
@@ -164,7 +170,7 @@ describe('Testing user view all entries', () => {
       .get('/api/v1/entries')
       .set('Authorization', UserToken)
       .end((err, res) => {
-        expect(res).to.have.status(200);
+        expect(res).to.have.status(STATUS_CODE_OK);
       });
     done();
   });
@@ -177,7 +183,7 @@ describe('Testing user view specific entry', () => {
       .get('/api/v1/entries/2')
       .set('Authorization', UserToken)
       .end((err, res) => {
-        expect(res).to.have.status(200);
+        expect(res).to.have.status(STATUS_CODE_OK);
       });
     done();
   });
