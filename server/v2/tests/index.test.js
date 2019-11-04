@@ -1,10 +1,17 @@
 import chai, { expect } from 'chai';
 import chaiHttp from 'chai-http';
-import app from '../routes/index';
+import app from '../routes/index.route';
+import indexTest from '../../v1/tests/index.test';
+import userTest from '../../v1/tests/user.test';
+import entryTest from '../../v1/tests/entry.test';
 import {
   STATUS_CODE_OK,
   BAD_REQUEST_STATUS_CODE,
 } from '../helpers/statusCodeHandler';
+
+indexTest();
+userTest();
+entryTest();
 
 
 chai.use(chaiHttp);

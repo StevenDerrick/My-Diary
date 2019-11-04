@@ -1,0 +1,6 @@
+export const STATUS_CODE_OK = 200;
+export const STATUS_CODE_CREATED = 201;
+export const NOT_FOUND_STATUS_CODE = 404;
+export const BAD_REQUEST_STATUS_CODE = 400;
+export const UNAUTHORIZED_STATUS_CODE = 401;
+export const UNPROCESSABLE_ENTITY_STATUS_CODE = 422;
