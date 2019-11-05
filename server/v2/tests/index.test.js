@@ -7,7 +7,7 @@ import entryTest from '../../v1/tests/entry.test';
 import {
   STATUS_CODE_OK,
   BAD_REQUEST_STATUS_CODE,
-} from '../helpers/statusCodeHandler';
+} from '../../helpers/statusCodeHandler';
 
 indexTest();
 userTest();

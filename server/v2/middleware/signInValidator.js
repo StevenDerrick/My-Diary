@@ -1,6 +1,6 @@
 
 import bcrypt from 'bcrypt';
-import { select } from '../helpers/sqlQueries';
+import { select } from '../../helpers/sqlQueries';
 
 export default async (req, res, next) => {
   const rows = await select('email, password', 'users', `email='${req.body.email}'`);

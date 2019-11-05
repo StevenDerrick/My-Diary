@@ -1,4 +1,4 @@
-import pool from '../config/dbConfig';
+import pool from '../v2/config/dbConfig';
 
 
 export const insert = async (table, dataStructure, values, data) => {
@@ -9,5 +9,10 @@ export const insert = async (table, dataStructure, values, data) => {
 
 export const select = async (data, table, condition) => {
   const { rows } = await pool.query(`SELECT ${data} FROM ${table} WHERE ${condition};`);
+  return rows;
+};
+
+export const selectLast = async (data, table) => {
+  const { rows } = await pool.query(`SELECT ${data} FROM ${table} ORDER BY id DESC LIMIT 1;`);
   return rows;
 };

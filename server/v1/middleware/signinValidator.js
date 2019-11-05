@@ -1,6 +1,6 @@
 import bcrypt from 'bcrypt';
-import Responsender from '../helpers/responseHandler';
-import { NOT_FOUND_STATUS_CODE } from '../helpers/statusCodeHandler';
+import Responsender from '../../helpers/responseHandler';
+import { NOT_FOUND_STATUS_CODE } from '../../helpers/statusCodeHandler';
 import users from '../models/Users';
 
 export default async (req, res, next) => {

@@ -1,6 +1,6 @@
 import entries from '../models/Entries';
-import Responsender from '../helpers/responseHandler';
-import { NOT_FOUND_STATUS_CODE } from '../helpers/statusCodeHandler';
+import Responsender from '../../helpers/responseHandler';
+import { NOT_FOUND_STATUS_CODE } from '../../helpers/statusCodeHandler';
 
 export default async (req, res, next) => {
   const response = new Responsender();

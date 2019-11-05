@@ -4,7 +4,7 @@ import app from '../routes/index';
 import {
   STATUS_CODE_OK,
   BAD_REQUEST_STATUS_CODE,
-} from '../helpers/statusCodeHandler';
+} from '../../helpers/statusCodeHandler';
 
 const indexTest = () => {
   chai.use(chaiHttp);

@@ -1,6 +1,6 @@
-import { select } from '../helpers/sqlQueries';
-import Responsender from '../helpers/responseHandler';
-import { UNPROCESSABLE_ENTITY_STATUS_CODE } from '../helpers/statusCodeHandler';
+import { select } from '../../helpers/sqlQueries';
+import Responsender from '../../helpers/responseHandler';
+import { UNPROCESSABLE_ENTITY_STATUS_CODE } from '../../helpers/statusCodeHandler';
 
 export default async (req, res, next) => {
   const response = new Responsender();

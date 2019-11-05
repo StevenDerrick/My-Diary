@@ -1,6 +1,6 @@
 import express from 'express';
-import Responsender from '../helpers/responseHandler';
-import { STATUS_CODE_OK } from '../helpers/statusCodeHandler';
+import Responsender from '../../helpers/responseHandler';
+import { STATUS_CODE_OK } from '../../helpers/statusCodeHandler';
 import entries from '../models/Entries';
 
 const app = express();

@@ -1,12 +1,9 @@
 import express from 'express';
 import bcrypt from 'bcrypt';
-import dotenv from 'dotenv';
-import { encrypter } from '../helpers/tokenHandler';
-import Responsender from '../helpers/responseHandler';
-import { insert, select } from '../helpers/sqlQueries';
-import { STATUS_CODE_CREATED, STATUS_CODE_OK } from '../helpers/statusCodeHandler';
-
-dotenv.config();
+import { encrypter } from '../../helpers/tokenHandler';
+import Responsender from '../../helpers/responseHandler';
+import { insert, select } from '../../helpers/sqlQueries';
+import { STATUS_CODE_CREATED, STATUS_CODE_OK } from '../../helpers/statusCodeHandler';
 
 const app = express();
 app.use(express.json);

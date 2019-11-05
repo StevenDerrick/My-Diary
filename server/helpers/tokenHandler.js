@@ -13,3 +13,8 @@ export const encrypter = (userId) => {
   });
   return token;
 };
+
+export const decrypter = (token) => {
+  const decodedToken = jwt.verify(token, process.env.JWT_KEY);
+  return decodedToken;
+};
