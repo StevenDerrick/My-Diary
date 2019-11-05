@@ -4,7 +4,7 @@ import dotenv from 'dotenv';
 import { encrypter } from '../helpers/tokenHandler';
 import Responsender from '../helpers/responseHandler';
 import { insert, select } from '../helpers/sqlQueries';
-import { STATUS_CODE_CREATED } from '../helpers/statusCodeHandler';
+import { STATUS_CODE_CREATED, STATUS_CODE_OK } from '../helpers/statusCodeHandler';
 
 dotenv.config();
 
@@ -31,6 +31,16 @@ export const usersSignUp = async (req, res) => {
 
   response.successful(STATUS_CODE_CREATED, 'User created successfully', {
     token: encrypter(idDone[0].userid),
+  });
+  return response.send(res);
+};
+
+export const usersSignIn = async (req, res) => {
+  const response = new Responsender();
+  const rows = await select('userid', 'users', `email='${req.body.email}'`);
+
+  response.successful(STATUS_CODE_OK, 'User is successfully logged in', {
+    token: encrypter(rows[0].userid),
   });
   return response.send(res);
 };
