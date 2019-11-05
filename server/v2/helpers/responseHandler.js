@@ -5,6 +5,12 @@ export default class Responsender {
     this.data = null;
   }
 
+  successful(statusCode, message, data) {
+    this.statusCode = statusCode;
+    this.message = message;
+    this.data = data;
+  }
+
   error(statusCode, error) {
     this.statusCode = statusCode;
     this.message = error;
@@ -16,6 +22,9 @@ export default class Responsender {
       message: this.message,
       data: this.data,
     };
+    if (this.data === null) {
+      delete result.data;
+    }
     return res.status(this.statusCode).json(result);
   }
 }

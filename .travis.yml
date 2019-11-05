@@ -4,13 +4,17 @@ node_js:
 cache:
   directories:
     - "node_modules"
+services:
+    - postgresql
 env:
   global:
     ENV=TRAVIS
-sudo: false     
+sudo: false
+install:
+  - npm install -g codecov    
 before_script:
-  - npm install -g codecov 
+  - psql -c 'create database travis_ci_test;' -U postgres
 script:
   - npm run test
 after_success:
-  - nyc report --reporter=text-lcov > coverage.lcov && codecov 
+ - nyc report --reporter=text-lcov > coverage.lcov && codecov

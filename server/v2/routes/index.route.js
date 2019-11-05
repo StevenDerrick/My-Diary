@@ -1,9 +1,11 @@
 import express from 'express';
+import user from './user.route';
 import Responsender from '../helpers/responseHandler';
 import { STATUS_CODE_OK, BAD_REQUEST_STATUS_CODE } from '../helpers/statusCodeHandler';
 
 const app = express();
 
+app.use('/api/v2/', user);
 app.get('/', (req, res) => {
   res.status(STATUS_CODE_OK);
   res.setHeader('Content-Type', 'text/html;charset=utf8');

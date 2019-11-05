@@ -11,13 +11,3 @@ export const select = async (data, table, condition) => {
   const { rows } = await pool.query(`SELECT ${data} FROM ${table} WHERE ${condition};`);
   return rows;
 };
-
-export const update = async (table, columns, condition) => {
-  const { rows } = await pool.query(`UPDATE ${table} SET ${columns} WHERE ${condition} RETURNING *;`);
-  return rows[0];
-};
-
-export const remove = async (table, columns, condition) => {
-  const { rows } = await pool.query(`DELETE FROM ${table} WHERE ${columns} = ${condition} RETURNING *;`);
-  return rows[0];
-};
