@@ -12,6 +12,5 @@ before_script:
   - npm install -g codecov 
 script:
   - npm run test
-  - nyc report --reporter=text-lcov > coverage.lcov && codecov
-after_success: 
-  - npm run coveralls
+after_success:
+  - nyc report --reporter=text-lcov > coverage.lcov && codecov 
