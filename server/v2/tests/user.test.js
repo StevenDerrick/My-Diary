@@ -106,3 +106,47 @@ describe('testing sign up', () => {
     done();
   });
 });
+
+describe('Testing sign in', () => {
+  it('should return invalid email or password when user entered email with no existing account', (done) => {
+    const invalidCredentials = {
+      email: 'invalid@gmail.com',
+      password: 'jieojf',
+    };
+    chai.request(app)
+      .post('/api/v2/auth/signin')
+      .send(invalidCredentials)
+      .end((err, res) => {
+       expect(res).to.have.status(401);
+      });
+    done();
+  });
+  it('should return invalid email or password when password is incorrect', (done) => {
+    const invalidCredentials = {
+      email: 'james@gmail.com',
+      password: 'jieojf',
+    };
+    chai.request(app)
+      .post('/api/v2/auth/signin')
+      .send(invalidCredentials)
+      .end((err, res) => {
+       expect(res).to.have.status(401);
+      });
+    done();
+  });
+  it('should return User is successfully logged in', (done) => {
+    const user = {
+      email: 'james@gmail.com',
+      password: 'james123',
+    };
+    chai.request(app)
+      .post('/api/v2/auth/signin')
+      .send(user)
+      .end((err, res) => {
+        expect(res).to.have.status(200);
+        expect(res.body).to.have.property('data');
+        done();
+      });
+  });
+});
+
