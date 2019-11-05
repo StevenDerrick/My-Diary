@@ -7,7 +7,7 @@ process.stdout.write(process.env.NODE_ENV);
 const createTables = `
 DROP TABLE IF EXISTS users, entries;
 CREATE TABLE IF NOT EXISTS users(
-    id SERIAL PRIMARY KEY,
+    userId SERIAL PRIMARY KEY,
     email VARCHAR(30) UNIQUE NOT NULL,
     firstName VARCHAR(20) NOT NULL,
     lastName VARCHAR(20) NOT NULL,

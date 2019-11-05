@@ -16,6 +16,7 @@ module.exports = {
   },
   rules: {
     'consistent-return': 0,
+    'no-unused-expressions':0,
     'no-console': 0,
     'no-undef': 0,
     'import/prefer-default-export': 0,
