@@ -10,6 +10,7 @@ dotenv.config();
 const User1Token = process.env.USER1_TOKEN;
 const User2Token = process.env.USER2_TOKEN;
 const User3Token = process.env.USER3_TOKEN;
+const User4Token = process.env.USER4_TOKEN;
 
 describe('Testing user creating an entry ON DATABASE', () => {
   it('should return created first entry successfully ON DATABASE', (done) => {
@@ -99,7 +100,7 @@ describe('Testing user view all entries ON DATABASE', () => {
   it('should return a list of all entries ON DATABASE', (done) => {
     chai.request(app)
       .get('/api/v2/entries')
-      .set('Authorization', User2Token)
+      .set('Authorization', User4Token)
       .end((err, res) => {
         expect(res).to.have.status(200);
       });

@@ -1,9 +1,6 @@
 import pool from '../config/dbConfig';
 
 
-process.stdout.write(process.env.NODE_ENV);
-
-
 const createTables = `
 DROP TABLE IF EXISTS users, entries;
 CREATE TABLE IF NOT EXISTS users(
@@ -20,6 +17,15 @@ CREATE TABLE IF NOT EXISTS entries (
     title VARCHAR(50) NOT NULL,
     description VARCHAR(300) NOT NULL
 );
+INSERT INTO entries(
+  userid, createdOn, title, description
+ )VALUES(3, 'Mon Oct 28 2019', 'Ttile for test files', 'This description is for the test files mock up');
+ INSERT INTO entries(
+    userid, createdOn, title, description
+   )VALUES(4, 'Mon Oct 28 2019', 'Ttile for test files', 'This description is for the test files mock up');
+   INSERT INTO entries(
+    userid, createdOn, title, description
+   )VALUES(4, 'Mon Oct 29 2019', 'Ttile for test files', 'This description is for the test files mock up');
 
   `;
 
@@ -30,4 +36,4 @@ pool.query(createTables).then(() => {
   process.exit(0);
 });
 
-process.stdout.write(' + Tables Created successfully');
+process.stdout.write(' + Test Tables Created successfully');
