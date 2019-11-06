@@ -16,3 +16,8 @@ export const selectLast = async (data, table) => {
   const { rows } = await pool.query(`SELECT ${data} FROM ${table} ORDER BY id DESC LIMIT 1;`);
   return rows;
 };
+
+export const update = async (table, columns, condition) => {
+  const { rows } = await pool.query(`UPDATE ${table} SET ${columns} WHERE ${condition} RETURNING *;`);
+  return rows[0];
+};

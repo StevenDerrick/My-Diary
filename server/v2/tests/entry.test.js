@@ -8,9 +8,11 @@ chai.use(chaiHttp);
 dotenv.config();
 
 const User1Token = process.env.USER1_TOKEN;
+const User2Token = process.env.USER2_TOKEN;
+const User3Token = process.env.USER3_TOKEN;
 
-describe('Testing user creating an entry', () => {
-  it('should return created first entry successfully', (done) => {
+describe('Testing user creating an entry ON DATABASE', () => {
+  it('should return created first entry successfully ON DATABASE', (done) => {
     const newEntry = {
       title: 'Good day',
       description: 'Good day we had yesterday when I spent',
@@ -22,6 +24,51 @@ describe('Testing user creating an entry', () => {
       .end((err, res) => {
         expect(res).to.have.status(200);
         expect(res.body).to.have.property('data');
+      });
+    done();
+  });
+});
+
+describe('Testing user modify entry ON DATABASE', () => {
+  it('should return You do not have an entry yet ON DATABASE', (done) => {
+    const modifiedEntry = {
+      title: 'Good day',
+      description: 'Good day we had yesterday when I spent',
+    };
+    chai.request(app)
+      .patch('/api/v2/entries/1')
+      .set('Authorization', User3Token)
+      .send(modifiedEntry)
+      .end((err, res) => {
+        expect(res).to.have.status(404);
+      });
+    done();
+  });
+  it('should return You do not have an entry with this ID ON DATABASE', (done) => {
+    const modifiedEntry = {
+      title: 'Good day',
+      description: 'Good day we had yesterday when I spent',
+    };
+    chai.request(app)
+      .patch('/api/v2/entries/9')
+      .set('Authorization', User2Token)
+      .send(modifiedEntry)
+      .end((err, res) => {
+        expect(res).to.have.status(404);
+      });
+    done();
+  });
+  it('should return entry successfully edited ON DATABASE', (done) => {
+    const modifiedEntry = {
+      title: 'Good day',
+      description: 'Good day we had yesterday when I spent',
+    };
+    chai.request(app)
+      .patch('/api/v2/entries/1')
+      .set('Authorization', User2Token)
+      .send(modifiedEntry)
+      .end((err, res) => {
+        expect(res).to.have.status(200);
       });
     done();
   });

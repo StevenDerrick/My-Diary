@@ -4,7 +4,7 @@ import app from '../app';
 
 chai.use(chaiHttp);
 
-describe('testing sign up', () => {
+describe('testing sign up ON DATABASE', () => {
   it('should validate user first round', (done) => {
     const newUser = {
       email: 'nkundajoy@gmail.com',
@@ -61,7 +61,7 @@ describe('testing sign up', () => {
   });
   it('should return User created successfully', (done) => {
     const newUser = {
-      email: 'james@gmail.com',
+      email: 'mico@gmail.com',
       password: 'james123',
       firstName: 'james',
       lastName: 'bond',
@@ -92,7 +92,7 @@ describe('testing sign up', () => {
   });
   it('should return email already exists on signup', (done) => {
     const regularUser = {
-      email: 'james@gmail.com',
+      email: 'mico@gmail.com',
       lastName: 'Yaahoo',
       firstName: 'Yaago',
       password: 'james1223',
@@ -123,7 +123,7 @@ describe('Testing sign in', () => {
   });
   it('should return invalid email or password when password is incorrect', (done) => {
     const invalidCredentials = {
-      email: 'james@gmail.com',
+      email: 'mico@gmail.com',
       password: 'jieojf',
     };
     chai.request(app)
@@ -136,7 +136,7 @@ describe('Testing sign in', () => {
   });
   it('should return User is successfully logged in', (done) => {
     const user = {
-      email: 'james@gmail.com',
+      email: 'mico@gmail.com',
       password: 'james123',
     };
     chai.request(app)

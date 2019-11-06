@@ -4,7 +4,7 @@ import pool from '../config/dbConfig';
 process.stdout.write(process.env.NODE_ENV);
 
 
-const createTables = `
+const createMockTables = `
 DROP TABLE IF EXISTS users, entries;
 CREATE TABLE IF NOT EXISTS users(
     userId SERIAL PRIMARY KEY,
@@ -20,13 +20,9 @@ CREATE TABLE IF NOT EXISTS entries (
     title VARCHAR(50) NOT NULL,
     description VARCHAR(300) NOT NULL
 );
-INSERT INTO entries(
-  userid, createdOn, title, description
- )VALUES(3, 'Mon Oct 28 2019', 'Ttile for test files', 'This description is for the test files mock up');
-
   `;
 
-pool.query(createTables).then(() => {
+pool.query(createMockTables).then(() => {
   pool.end();
 }).catch((err) => {
   process.stdout.write(err.message);
