@@ -7,7 +7,7 @@ import {
   BAD_REQUEST_STATUS_CODE,
   STATUS_CODE_OK,
   NOT_FOUND_STATUS_CODE,
-} from '../helpers/statusCodeHandler';
+} from '../../helpers/statusCodeHandler';
 
 dotenv.config();
 
@@ -21,40 +21,40 @@ const entryTest = () => {
 
   describe('Testing user create new entry', () => {
     it('should return forbidden you must login to proceed', (done) => {
-      const newTrip = {
+      const newEntry = {
         title: 'Good day',
         description: 'Good day we had yesterday when I spent',
       };
       chai.request(app)
         .post('/api/v1/entries')
         .set('Authorization', '')
-        .send(newTrip)
+        .send(newEntry)
         .end((err, res) => {
           expect(res).to.have.status(UNAUTHORIZED_STATUS_CODE);
         });
       done();
     });
     it('should validate the entry round 1', (done) => {
-      const newTrip = {
+      const newEntry = {
         title: 'Good day',
       };
       chai.request(app)
         .post('/api/v1/entries')
         .set('Authorization', UserToken)
-        .send(newTrip)
+        .send(newEntry)
         .end((err, res) => {
           expect(res).to.have.status(400);
         });
       done();
     });
     it('should validate the entry round 2', (done) => {
-      const newTrip = {
+      const newEntry = {
         description: 'Good day we had yesterday when I spent',
       };
       chai.request(app)
         .post('/api/v1/entries')
         .set('Authorization', UserToken)
-        .send(newTrip)
+        .send(newEntry)
         .end((err, res) => {
           expect(res).to.have.status(BAD_REQUEST_STATUS_CODE);
         });
@@ -69,29 +69,29 @@ const entryTest = () => {
         });
       done();
     });
-    it('should return entry created first entry successfully', (done) => {
-      const newTrip = {
+    it('should return created first entry successfully', (done) => {
+      const newEntry = {
         title: 'Good day',
         description: 'Good day we had yesterday when I spent',
       };
       chai.request(app)
         .post('/api/v1/entries')
         .set('Authorization', UserToken)
-        .send(newTrip)
+        .send(newEntry)
         .end((err, res) => {
           expect(res).to.have.status(STATUS_CODE_OK);
         });
       done();
     });
     it('should return entry created second entry successfully', (done) => {
-      const newTrip = {
+      const newEntry = {
         title: 'Good day',
         description: 'Good day we had yesterday when I spent',
       };
       chai.request(app)
         .post('/api/v1/entries')
         .set('Authorization', UserToken)
-        .send(newTrip)
+        .send(newEntry)
         .end((err, res) => {
           expect(res).to.have.status(STATUS_CODE_OK);
         });

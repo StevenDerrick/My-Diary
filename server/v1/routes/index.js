@@ -1,8 +1,8 @@
 import express from 'express';
 import user from './userRoute';
 import entry from './entryRoute';
-import Responsender from '../helpers/responseHandler';
-import { STATUS_CODE_OK, BAD_REQUEST_STATUS_CODE } from '../helpers/statusCodeHandler';
+import Responsender from '../../helpers/responseHandler';
+import { STATUS_CODE_OK, BAD_REQUEST_STATUS_CODE } from '../../helpers/statusCodeHandler';
 
 const app = express();
 

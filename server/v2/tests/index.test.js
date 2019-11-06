@@ -7,7 +7,7 @@ import entryTest from '../../v1/tests/entry.test';
 import {
   STATUS_CODE_OK,
   BAD_REQUEST_STATUS_CODE,
-} from '../helpers/statusCodeHandler';
+} from '../../helpers/statusCodeHandler';
 
 indexTest();
 userTest();
@@ -16,8 +16,8 @@ entryTest();
 
 chai.use(chaiHttp);
 
-describe('testing welcome API message', () => {
-  it('should return welcome message', (done) => {
+describe('testing welcome API message ON DATABASE', () => {
+  it('should return welcome message ON DATABASE', (done) => {
     chai.request(app)
       .get('/')
       .end((err, res) => {
@@ -27,7 +27,7 @@ describe('testing welcome API message', () => {
   });
 });
 
-describe('testing invalid endpoint', () => {
+describe('testing invalid endpoint ON DATABASE', () => {
   it('should return no such endpoint', (done) => {
     chai.request(app)
       .get('/users')

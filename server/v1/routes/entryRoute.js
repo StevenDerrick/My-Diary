@@ -2,8 +2,8 @@ import express from 'express';
 import {
   entriesCreate, entriesModify, entriesDelete, entriesAll, entriesParticular,
 } from '../controllers/entry';
-import entryValidator from '../middleware/entryValidator';
-import checkAuth from '../middleware/checkAuth';
+import entryValidator from '../../validators/entryValidator';
+import checkAuth from '../../validators/checkAuth';
 import checkUserEntry from '../middleware/checkUserEntry';
 import checkEntryAll from '../middleware/checkEntryAll';
 

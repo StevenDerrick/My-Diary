@@ -14,12 +14,13 @@ CREATE TABLE IF NOT EXISTS users(
     password VARCHAR(300) NOT NULL
     );
 CREATE TABLE IF NOT EXISTS entries (
-    entryId SERIAL PRIMARY KEY,
+    id SERIAL PRIMARY KEY,
     userId INT NOT NULL,
     createdOn VARCHAR(20) NOT NULL,
     title VARCHAR(50) NOT NULL,
     description VARCHAR(300) NOT NULL
 );
+
   `;
 
 pool.query(createTables).then(() => {

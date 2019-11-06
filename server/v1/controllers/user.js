@@ -1,9 +1,9 @@
 import express from 'express';
 import bcrypt from 'bcrypt';
 import dotenv from 'dotenv';
-import { encrypter } from '../helpers/tokenHandler';
-import Responsender from '../helpers/responseHandler';
-import { STATUS_CODE_OK, STATUS_CODE_CREATED } from '../helpers/statusCodeHandler';
+import { encrypter } from '../../helpers/tokenHandler';
+import Responsender from '../../helpers/responseHandler';
+import { STATUS_CODE_OK, STATUS_CODE_CREATED } from '../../helpers/statusCodeHandler';
 import users from '../models/Users';
 
 dotenv.config();

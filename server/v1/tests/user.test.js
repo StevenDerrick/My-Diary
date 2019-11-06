@@ -7,7 +7,7 @@ import {
   NOT_FOUND_STATUS_CODE,
   BAD_REQUEST_STATUS_CODE,
   UNPROCESSABLE_ENTITY_STATUS_CODE,
-} from '../helpers/statusCodeHandler';
+} from '../../helpers/statusCodeHandler';
 
 const userTest = () => {
   chai.use(chaiHttp);
