@@ -77,7 +77,7 @@ describe('testing sign up ON DATABASE', () => {
   });
   it('should return email already exist', (done) => {
     const newUser = {
-      email: 'james@gmail.com',
+      email: 'mico@gmail.com',
       password: 'james123',
       firstName: 'james',
       lastName: 'bond',
