@@ -5,6 +5,7 @@ import app from '../app';
 import {
   STATUS_CODE_OK,
   NOT_FOUND_STATUS_CODE,
+  STATUS_CODE_FORBIDDEN,
 } from '../../helpers/statusCodeHandler';
 
 chai.use(chaiHttp);
@@ -15,6 +16,7 @@ const User1Token = process.env.USER1_TOKEN;
 const User2Token = process.env.USER2_TOKEN;
 const User3Token = process.env.USER3_TOKEN;
 const User4Token = process.env.USER4_TOKEN;
+const User5Token = process.env.USER5_TOKEN;
 
 describe('Testing user creating an entry ON DATABASE', () => {
   it('should return created first entry successfully ON DATABASE', (done) => {
@@ -42,7 +44,7 @@ describe('Testing user modify entry ON DATABASE', () => {
     };
     chai.request(app)
       .patch('/api/v2/entries/1')
-      .set('Authorization', User3Token)
+      .set('Authorization', User5Token)
       .send(modifiedEntry)
       .end((err, res) => {
         expect(res).to.have.status(NOT_FOUND_STATUS_CODE);
@@ -95,7 +97,7 @@ describe('Testing user view all entries ON DATABASE', () => {
   it('should return you do not have an entry ON DATABASE', (done) => {
     chai.request(app)
       .get('/api/v2/entries')
-      .set('Authorization', User3Token)
+      .set('Authorization', User5Token)
       .end((err, res) => {
         expect(res).to.have.status(NOT_FOUND_STATUS_CODE);
       });
@@ -120,6 +122,18 @@ describe('Testing user view specific entry ON DATABASE', () => {
       .set('Authorization', User4Token)
       .end((err, res) => {
         expect(res).to.have.status(STATUS_CODE_OK);
+      });
+    done();
+  });
+});
+
+describe('Testing token validity DATABASE', () => {
+  it('should return sorry this token doesnot belong to a valid user ON DATABASE', (done) => {
+    chai.request(app)
+      .get('/api/v2/entries/3')
+      .set('Authorization', User3Token)
+      .end((err, res) => {
+        expect(res).to.have.status(STATUS_CODE_FORBIDDEN);
       });
     done();
   });

@@ -17,6 +17,18 @@ CREATE TABLE IF NOT EXISTS entries (
     title VARCHAR(50) NOT NULL,
     description VARCHAR(300) NOT NULL
 );
+INSERT INTO users(
+  firstName, lastName, email, password
+ )VALUES('Jane', 'Doe', 'jane@gmail.com', '$2b$10$0cAXA8TWPQVaZGq3We0peuvpTDJO.B68DlHskE5EuBhV2kZkEh6Xi');
+ INSERT INTO users(
+  firstName, lastName, email, password
+ )VALUES('Jacky', 'Moon', 'jacky@gmail.com', '$2b$10$0cAXA8TWPQVaZGq3We0peuvpTDJO.B68DlHskE5EuBhV2kZkEh6Xi');
+ INSERT INTO users(
+  firstName, lastName, email, password
+ )VALUES('Junior', 'Mucyo', 'junior@gmail.com', '$2b$10$0cAXA8TWPQVaZGq3We0peuvpTDJO.B68DlHskE5EuBhV2kZkEh6Xi');
+ INSERT INTO users(
+  firstName, lastName, email, password
+ )VALUES('Media', 'Down', 'down@gmail.com', '$2b$10$0cAXA8TWPQVaZGq3We0peuvpTDJO.B68DlHskE5EuBhV2kZkEh6Xi');
 INSERT INTO entries(
   userid, createdOn, title, description
  )VALUES(3, 'Mon Oct 28 2019', 'Ttile for test files', 'This description is for the test files mock up');
