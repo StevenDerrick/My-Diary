@@ -8,7 +8,7 @@
   "description": "MyDiary is an online journal where users can pen down their thoughts and feelings.",
   "main": "server.js",
   "scripts": {
-    "start": "babel-node server.js",
+    "start": "npm run createTables && babel-node server.js",
     "dev": "nodemon --exec babel-node server.js",
     "test": "npm run mockTable && nyc --reporter=html --reporter=text mocha --require @babel/register --require @babel/polyfill --timeout 500 server/v2/tests --exit",
     "createTables": "NODE_ENV=development babel-node ./server/v2/models/tableCreator.js",

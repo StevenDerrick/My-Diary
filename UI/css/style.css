@@ -445,6 +445,8 @@ section .respons {
     width: 110%;
     height: 370px;
     background-image: url(../assets/multi-device.png);
+    position: relative;
+    right: 7vw;
     background-position: center;
     background-size: contain;
     background-repeat: no-repeat;

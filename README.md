@@ -8,7 +8,7 @@
 
 > An Andela Bootcamp Challenge.
 
-> For API documentation, please visit https://documenter.getpostman.com/view/9247920/SVzw51AC
+> For API documentation, please visit [here](https://documenter.getpostman.com/view/9247920/SVzw51AC)
 
 # Table of Contents
 * [Live Link](#live-link-globe_with_meridians)
@@ -45,10 +45,10 @@
 POST | /v1/auth/signup | true | Create a user in the API
 POST | /v1/auth/signin | true | User can sign in the API
 POST | /v1/entries | true | Create an entry
-PATCH | /v1/entries/<entryId> | true | Modify a specifc entry
-DELETE | /v1/entries/<entryId> | true | Delete an entry
+PATCH | /v1/entries/entryId | true | Modify a specifc entry
+DELETE | /v1/entries/entryId | true | Delete an entry
 GET | /v1/entries/ | true | Fetch all entries
-GET | /v1/entries/<entryId> | true | Fetch a specific entry
+GET | /v1/entries/entryId | true | Fetch a specific entry
 
 # Prerequisites :wrench:
 - Clone this project with `https://github.com/StevenDerrick/My-Diary.git`.
