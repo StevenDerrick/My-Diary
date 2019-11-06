@@ -17,6 +17,12 @@ export const selectLast = async (data, table) => {
   return rows;
 };
 
+export const selectSort = async (data, table, condition) => {
+  const { rows } = await pool.query(`SELECT ${data} FROM ${table} WHERE ${condition} ORDER BY id DESC;`);
+  return rows;
+};
+
+
 export const update = async (table, columns, condition) => {
   const { rows } = await pool.query(`UPDATE ${table} SET ${columns} WHERE ${condition} RETURNING *;`);
   return rows[0];

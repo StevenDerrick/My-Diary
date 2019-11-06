@@ -85,3 +85,24 @@ describe('Testing user delete entry ON DATABASE', () => {
     done();
   });
 });
+
+describe('Testing user view all entries ON DATABASE', () => {
+  it('should return you do not have an entry ON DATABASE', (done) => {
+    chai.request(app)
+      .get('/api/v2/entries')
+      .set('Authorization', User3Token)
+      .end((err, res) => {
+        expect(res).to.have.status(404);
+      });
+    done();
+  });
+  it('should return a list of all entries ON DATABASE', (done) => {
+    chai.request(app)
+      .get('/api/v2/entries')
+      .set('Authorization', User2Token)
+      .end((err, res) => {
+        expect(res).to.have.status(200);
+      });
+    done();
+  });
+});

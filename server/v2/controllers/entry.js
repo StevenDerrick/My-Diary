@@ -1,7 +1,7 @@
 import express from 'express';
 import Responsender from '../../helpers/responseHandler';
 import {
-  insert, selectLast, update, select, remove,
+  insert, selectLast, update, select, remove, selectSort,
 } from '../../helpers/sqlQueries';
 import { STATUS_CODE_OK } from '../../helpers/statusCodeHandler';
 
@@ -50,5 +50,13 @@ exports.entriesDelete = async (req, res) => {
   const entryRemove = await remove('entries', 'id', `${req.params.entryId}`);
 
   response.successful(STATUS_CODE_OK, 'entry deleted successfully', null);
+  return response.send(res);
+};
+
+exports.entriesAll = async (req, res) => {
+  const response = new Responsender();
+  const rows = await selectSort('id, createdOn, title, description', 'entries', `userid='${req.userData.userId}'`);
+
+  response.successful(STATUS_CODE_OK, null, rows);
   return response.send(res);
 };

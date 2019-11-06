@@ -25,6 +25,9 @@ export default class Responsender {
     if (this.data === null) {
       delete result.data;
     }
+    if (this.message === null) {
+      delete result.message;
+    }
     return res.status(this.statusCode).json(result);
   }
 }

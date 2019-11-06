@@ -56,7 +56,7 @@ exports.entriesAll = (req, res) => {
   const newArray = entry.map(({ userId, ...item }) => item);
   newArray.sort((a, b) => parseFloat(b.id) - parseFloat(a.id));
 
-  response.successful(200, null, newArray);
+  response.successful(STATUS_CODE_OK, null, newArray);
   return response.send(res);
 };
 
