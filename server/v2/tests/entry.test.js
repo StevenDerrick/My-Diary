@@ -73,3 +73,15 @@ describe('Testing user modify entry ON DATABASE', () => {
     done();
   });
 });
+
+describe('Testing user delete entry ON DATABASE', () => {
+  it('should return entry deleted successfully ON DATABASE', (done) => {
+    chai.request(app)
+      .delete('/api/v2/entries/1')
+      .set('Authorization', User2Token)
+      .end((err, res) => {
+        expect(res).to.have.status(200);
+      });
+    done();
+  });
+});
