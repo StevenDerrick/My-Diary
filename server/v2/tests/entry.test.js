@@ -6,6 +6,7 @@ import {
   STATUS_CODE_OK,
   NOT_FOUND_STATUS_CODE,
   STATUS_CODE_FORBIDDEN,
+  STATUS_NO_CONTENT,
 } from '../../helpers/statusCodeHandler';
 
 chai.use(chaiHttp);
@@ -87,7 +88,7 @@ describe('Testing user delete entry ON DATABASE', () => {
       .delete('/api/v2/entries/1')
       .set('Authorization', User2Token)
       .end((err, res) => {
-        expect(res).to.have.status(STATUS_CODE_OK);
+        expect(res).to.have.status(STATUS_NO_CONTENT);
       });
     done();
   });

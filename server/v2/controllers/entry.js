@@ -3,7 +3,7 @@ import Responsender from '../../helpers/responseHandler';
 import {
   insert, selectLast, update, select, remove, selectSort,
 } from '../../helpers/sqlQueries';
-import { STATUS_CODE_OK } from '../../helpers/statusCodeHandler';
+import { STATUS_CODE_OK, STATUS_NO_CONTENT } from '../../helpers/statusCodeHandler';
 
 const app = express();
 app.use(express.json);
@@ -49,7 +49,7 @@ exports.entriesDelete = async (req, res) => {
 
   const entryRemove = await remove('entries', 'id', `${req.params.entryId}`);
 
-  response.successful(STATUS_CODE_OK, 'entry deleted successfully', null);
+  response.successful(STATUS_NO_CONTENT, 'entry deleted successfully', null);
   return response.send(res);
 };
 
