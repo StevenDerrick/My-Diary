@@ -2,6 +2,10 @@ import chai, { expect } from 'chai';
 import chaiHttp from 'chai-http';
 import dotenv from 'dotenv';
 import app from '../app';
+import {
+  STATUS_CODE_OK,
+  NOT_FOUND_STATUS_CODE,
+} from '../../helpers/statusCodeHandler';
 
 chai.use(chaiHttp);
 
@@ -23,7 +27,7 @@ describe('Testing user creating an entry ON DATABASE', () => {
       .set('Authorization', User1Token)
       .send(newEntry)
       .end((err, res) => {
-        expect(res).to.have.status(200);
+        expect(res).to.have.status(STATUS_CODE_OK);
         expect(res.body).to.have.property('data');
       });
     done();
@@ -41,7 +45,7 @@ describe('Testing user modify entry ON DATABASE', () => {
       .set('Authorization', User3Token)
       .send(modifiedEntry)
       .end((err, res) => {
-        expect(res).to.have.status(404);
+        expect(res).to.have.status(NOT_FOUND_STATUS_CODE);
       });
     done();
   });
@@ -55,7 +59,7 @@ describe('Testing user modify entry ON DATABASE', () => {
       .set('Authorization', User2Token)
       .send(modifiedEntry)
       .end((err, res) => {
-        expect(res).to.have.status(404);
+        expect(res).to.have.status(NOT_FOUND_STATUS_CODE);
       });
     done();
   });
@@ -69,7 +73,7 @@ describe('Testing user modify entry ON DATABASE', () => {
       .set('Authorization', User2Token)
       .send(modifiedEntry)
       .end((err, res) => {
-        expect(res).to.have.status(200);
+        expect(res).to.have.status(STATUS_CODE_OK);
       });
     done();
   });
@@ -81,7 +85,7 @@ describe('Testing user delete entry ON DATABASE', () => {
       .delete('/api/v2/entries/1')
       .set('Authorization', User2Token)
       .end((err, res) => {
-        expect(res).to.have.status(200);
+        expect(res).to.have.status(STATUS_CODE_OK);
       });
     done();
   });
@@ -93,7 +97,7 @@ describe('Testing user view all entries ON DATABASE', () => {
       .get('/api/v2/entries')
       .set('Authorization', User3Token)
       .end((err, res) => {
-        expect(res).to.have.status(404);
+        expect(res).to.have.status(NOT_FOUND_STATUS_CODE);
       });
     done();
   });
@@ -102,7 +106,20 @@ describe('Testing user view all entries ON DATABASE', () => {
       .get('/api/v2/entries')
       .set('Authorization', User4Token)
       .end((err, res) => {
-        expect(res).to.have.status(200);
+        expect(res).to.have.status(STATUS_CODE_OK);
+      });
+    done();
+  });
+});
+
+
+describe('Testing user view specific entry ON DATABASE', () => {
+  it('should return a specific entry ON DATABASE', (done) => {
+    chai.request(app)
+      .get('/api/v2/entries/3')
+      .set('Authorization', User4Token)
+      .end((err, res) => {
+        expect(res).to.have.status(STATUS_CODE_OK);
       });
     done();
   });

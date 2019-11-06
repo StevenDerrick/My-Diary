@@ -60,3 +60,11 @@ exports.entriesAll = async (req, res) => {
   response.successful(STATUS_CODE_OK, null, rows);
   return response.send(res);
 };
+
+exports.entriesParticular = async (req, res) => {
+  const response = new Responsender();
+  const entrySpec = await select('id, createdOn, title, description', 'entries', `id='${req.params.entryId}' AND userid='${req.userData.userId}'`);
+
+  response.successful(STATUS_CODE_OK, null, entrySpec[0]);
+  return response.send(res);
+};
