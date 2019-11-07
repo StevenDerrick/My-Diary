@@ -15,7 +15,7 @@ CREATE TABLE IF NOT EXISTS entries (
     userId INT NOT NULL,
     createdOn VARCHAR(20) NOT NULL,
     title VARCHAR(50) NOT NULL,
-    description VARCHAR(300) NOT NULL
+    description VARCHAR(500) NOT NULL
 );
 
   `;

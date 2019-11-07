@@ -5,19 +5,22 @@ export default async (req, res, next) => {
   const schema = {
     firstName: Joi.string()
       .min(3)
+      .max(20)
       .required()
       .error(() => ({
-        message: ' First name is required.',
+        message: ' First name is required: mix 3 and max 20 characters.',
       })),
     lastName: Joi.string()
       .min(3)
+      .max(20)
       .required()
       .error(() => ({
-        message: ' Last name is required.',
+        message: ' Last name is required: min 3 and max 20 characters.',
       })),
     email: Joi.string()
       .email({ minDomainAtoms: 2 })
       .required()
+      .max(30)
       .error(() => ({
         message: ' Email is required and must be valid.',
       })),
