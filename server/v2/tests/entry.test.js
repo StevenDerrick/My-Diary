@@ -7,6 +7,7 @@ import {
   NOT_FOUND_STATUS_CODE,
   STATUS_CODE_FORBIDDEN,
   STATUS_NO_CONTENT,
+  BAD_REQUEST_STATUS_CODE,
 } from '../../helpers/statusCodeHandler';
 
 chai.use(chaiHttp);
@@ -135,6 +136,18 @@ describe('Testing token validity DATABASE', () => {
       .set('Authorization', User3Token)
       .end((err, res) => {
         expect(res).to.have.status(STATUS_CODE_FORBIDDEN);
+      });
+    done();
+  });
+});
+
+describe('Testing params validator', () => {
+  it('should return entryId must be an integer', (done) => {
+    chai.request(app)
+      .get('/api/v2/entries/hghg')
+      .set('Authorization', User3Token)
+      .end((err, res) => {
+        expect(res).to.have.status(BAD_REQUEST_STATUS_CODE);
       });
     done();
   });
