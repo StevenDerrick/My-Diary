@@ -1,3 +1,9 @@
+@media only screen and (min-width: 2400px) {
+    section .respons {
+        right: 0;
+    }
+}
+
 @media screen and (max-width: 1340px) and (min-width: 1201px) {
     .respons p {
         font-size: 1.5vw;
