@@ -1,9 +1,6 @@
 import pool from '../config/dbConfig';
 
 
-process.stdout.write(process.env.NODE_ENV);
-
-
 const createTables = `
 DROP TABLE IF EXISTS users, entries;
 CREATE TABLE IF NOT EXISTS users(
