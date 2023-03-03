@@ -55,7 +55,7 @@
     "istanbul-lib-instrument": "^3.3.0",
     "joi": "^14.3.1",
     "jsonwebtoken": "^8.5.1",
-    "mocha": "^6.2.0",
+    "mocha": "^6.2.3",
     "morgan": "^1.9.1",
     "nodemon": "^1.19.1",
     "nyc": "^14.1.1",
